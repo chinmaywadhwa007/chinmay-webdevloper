@@ -11,7 +11,7 @@ const Projects = () => {
     {
       title: 'ShopEase',
       description: 'Full-stack e-commerce application with payment integration, inventory management, and user authentication.',
-      image: '/public/shopease.png',
+      image: '/shopease.png',
       tags: ['React', 'tailwind css', 'stitch for desiging ', 'Stripe'],
       liveUrl: '#',
       githubUrl: '#',
@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: 'skill-loop ',
       description: 'SkillLoop is a full-stack skill exchange platform designed to connect learners and mentors through a coin-based ecosystem. Users can teach skills they are proficient in, earn virtual coins, and use those coins to learn new skills from others within the community. The platform encourages collaborative learning while rewarding knowledge sharing.',
-      image: '/public/skilloop.png',
+      image: '/skilloop.png',
       tags: ['React', 'node.js', 'Tailwind CSS', 'Framer Motion', 'backend', 'mongodb'],
       liveUrl: '#',
       githubUrl: '#',
