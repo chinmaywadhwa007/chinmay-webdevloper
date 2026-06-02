@@ -22,6 +22,7 @@ const Skills = () => {
       { name: 'Express.js', level: 88 },
       { name: 'PostgreSQL', level: 85 },
       { name: 'MongoDB', level: 82 },
+      { name: 'Python', level: 85 },
       { name: 'REST APIs', level: 90 },
 
     ],

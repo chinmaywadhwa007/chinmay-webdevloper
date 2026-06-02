@@ -101,7 +101,7 @@ const GitHub = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className={styles.title}>Open Source & Projects</h2>
+          <h2 className={styles.title}> Github  & Projects</h2>
           <div className={styles.underline} />
         </motion.div>
 

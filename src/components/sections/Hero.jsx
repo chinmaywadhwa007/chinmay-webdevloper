@@ -8,7 +8,7 @@ import styles from './Hero.module.css';
  */
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
-  const fullText = 'Full Stack Developer & Designer';
+  const fullText = 'Full Stack Developer | GenAI Enthusiast';
   const typingSpeed = 100;
 
   // Typewriter effect
@@ -80,8 +80,7 @@ const Hero = () => {
 
         {/* Description */}
         <motion.p variants={itemVariants} className={styles.description}>
-          I create beautiful, functional web experiences that solve real problems. 
-          Passionate about clean code, modern design, and user-centered solutions.
+          Passionate Full Stack Developer skilled in React, Node.js, MongoDB, and JavaScript. I enjoy building scalable web applications and solving real-world problems through code.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -97,7 +96,7 @@ const Hero = () => {
               }
             }}
           >
-            Get in Touch
+            Let's Connect
           </motion.button>
           <motion.button
             className={styles.ctaSecondary}
@@ -110,7 +109,7 @@ const Hero = () => {
               }
             }}
           >
-            View My Work
+            View My Project
           </motion.button>
         </motion.div>
 
