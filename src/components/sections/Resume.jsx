@@ -9,9 +9,9 @@ import styles from './Resume.module.css';
 const Resume = () => {
   const education = [
     {
-      degree: 'Bachelor of Science in Computer Science',
-      school: 'University of Technology',
-      year: '2017 - 2021',
+      degree: 'Bachelor of ECE',
+      school: 'Jecrc Foundation',
+      year: '2021-2024',
       description: 'Focused on web development, software engineering, and computer networks.',
     },
     {
@@ -72,7 +72,9 @@ const Resume = () => {
           transition={{ delay: 0.2 }}
         >
           <motion.a
-            href="/public/cwadhwa-resume.pdf"
+            href="/cwadhwa-resume.pdf"
+            target="_blank"
+            download="Chinmay-Wadhwa-Resume.pdf"
             className={styles.actionBtn}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -81,7 +83,9 @@ const Resume = () => {
             Download Resume
           </motion.a>
           <motion.a
-            href="/public/cwadhwa-resume.pdf"
+            href="/cwadhwa-resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`${styles.actionBtn} ${styles.secondary}`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -144,15 +148,15 @@ const Resume = () => {
         >
           <div className={styles.infoCard}>
             <h4>Languages</h4>
-            <p>English (Native), Spanish (Fluent), French (Intermediate)</p>
+            <p>English, Hindi</p>
           </div>
           <div className={styles.infoCard}>
             <h4>Interests</h4>
-            <p>Web Development, UI/UX Design, Open Source, Tech Blogging</p>
+            <p>Web Development, UI/UX Design, Open Source, Tech Blogging, cybersecurity</p>
           </div>
           <div className={styles.infoCard}>
             <h4>Availability</h4>
-            <p>Open to freelance, contract, and full-time opportunities</p>
+            <p>Open to Full-Stack Developer, Backend Developer, and Software Engineer opportunities, security fields</p>
           </div>
         </motion.div>
       </div>
