@@ -1,11 +1,11 @@
-import React from 'react';
+
+import React, { lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { FiCode, FiPenTool, FiTrendingUp } from 'react-icons/fi';
 import styles from './About.module.css';
 
-/**
- * About Section - Introduction and highlights
- */
+
+
 const About = () => {
   const highlights = [
     {
@@ -14,12 +14,12 @@ const About = () => {
       description: 'Writing maintainable, scalable code following best practices and design patterns.',
     },
     {
-      icon: FiPenTool,
-      title: 'Modern Design',
+      icon: FiTrendingUp,
+      title: '6 months of intership exp @ kvon-technologies',
       description: 'Creating beautiful user interfaces with attention to detail and user experience.',
     },
     {
-      icon: FiTrendingUp,
+      icon: FiPenTool,
       title: 'Problem Solving',
       description: 'Debugging applications, fixing API issues, and continuously improving system reliability and performance.',
     },
@@ -67,17 +67,25 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {/* Bio Text */}
-          <motion.div variants={itemVariants} className={styles.bio}>
-            <p>
-              <p>
-                Hi! I'm Chinmay Wadhwa, a Full-Stack Developer with hands-on experience building web applications using React,  Node.js, MongoDB, and PostgreSQL. I enjoy solving real-world problems through clean code, scalable backend systems, and user-friendly interfaces.
-              </p>
-            </p>
-            <p>
-              When I'm not coding, you'll usually find me preparing for technical interviews, learning new technologies, working on personal projects, or creating content around bikes and technology.
-            </p>
-          </motion.div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '40px', flexWrap: 'wrap' }}>
+
+
+
+            {/* Bio */}
+            <div style={{ flex: 1, minWidth: '300px' }}>
+              <motion.div variants={itemVariants} className={styles.bio}>
+                <p>
+                  I'm Chinmay Wadhwa, a Full-Stack Developer with experience building web applications using React, Node.js, MongoDB, and PostgreSQL. I enjoy solving real-world problems through clean code, scalable backend systems, and user-friendly interfaces.
+                </p>
+                <br />
+                <p>
+                  When I'm not coding, you'll usually find me preparing for technical interviews, learning new technologies, working on personal projects, or creating content around bikes and technology.
+                </p>
+              </motion.div>
+            </div>
+
+          </div>
+
 
           {/* Highlights */}
           <div className={styles.highlights}>

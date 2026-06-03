@@ -80,7 +80,7 @@ const Hero = () => {
 
         {/* Description */}
         <motion.p variants={itemVariants} className={styles.description}>
-          Passionate Full Stack Developer skilled in React, Node.js, MongoDB, and JavaScript. I enjoy building scalable web applications and solving real-world problems through code.
+          I build full-stack web apps using Next.js, Node.js, and MongoDB. Recently shipped skill-loop and FrostFlow — check them out below.
         </motion.p>
 
         {/* CTA Buttons */}

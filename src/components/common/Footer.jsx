@@ -50,12 +50,12 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className={styles.copyright}>
-            © {currentYear} Your Name. All rights reserved.
+            © {2026} chinmay wadhwa. All rights reserved.
           </p>
 
           {/* Design Credit */}
           <p className={styles.credit}>
-            Crafted with passion and React
+            Crafted with passion 
           </p>
         </div>
       </div>

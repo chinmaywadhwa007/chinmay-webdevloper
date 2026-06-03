@@ -48,7 +48,7 @@ const Navbar = ({ sections }) => {
       <div className={styles.navContainer}>
         {/* Logo */}
         <Link to="/" className={styles.logo}>
-          <span className={styles.logoText}>Portfolio</span>
+          <span className={styles.logoText}>cw</span>
         </Link>
 
         {/* Desktop Navigation */}

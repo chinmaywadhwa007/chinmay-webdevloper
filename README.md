@@ -188,7 +188,7 @@ Features implemented for better accessibility:
 
 ## Deployment
 
-### Deploy to Vercel (Recommended)
+### Deploy to Vercel 
 
 1. Push your code to GitHub
 2. Import project in Vercel dashboard
@@ -199,28 +199,7 @@ Features implemented for better accessibility:
 # Or use Vercel CLI
 npm install -g vercel
 vercel
-```
 
-### Deploy to Other Platforms
 
-Since this is a static site, you can deploy to:
 
-- GitHub Pages
-- Netlify
-- Firebase Hosting
-- AWS S3 + CloudFront
-- Any static hosting provider
 
-Just run `pnpm build` and upload the `dist/` folder.
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Support
-
-For questions or issues, please create an issue in the repository or contact the maintainers.
-
----
-
-Built with ❤️ using React, Vite, and Framer Motion
