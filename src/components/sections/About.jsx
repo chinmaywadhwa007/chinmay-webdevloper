@@ -75,7 +75,7 @@ const About = () => {
             <div style={{ flex: 1, minWidth: '300px' }}>
               <motion.div variants={itemVariants} className={styles.bio}>
                 <p>
-                  I'm Chinmay Wadhwa, a Full-Stack Developer with experience building web applications using React, Node.js, MongoDB, and PostgreSQL. I enjoy solving real-world problems through clean code, scalable backend systems, and user-friendly interfaces.
+                  I'm Chinmay Wadhwa,a Full-Stack Developer with experience building web applications using React, Node.js, MongoDB, and PostgreSQL. I enjoy solving real-world problems through clean code, scalable backend systems, and user-friendly interfaces.
                 </p>
                 <br />
                 <p>
@@ -122,7 +122,7 @@ const About = () => {
             <p>months Experience</p>
           </div>
           <div className={styles.stat}>
-            <h4>3 major projects + min projects </h4>
+            <h4>3 major projects + min project </h4>
             <p>Projects Completed</p>
           </div>
           <div className={styles.stat}>
