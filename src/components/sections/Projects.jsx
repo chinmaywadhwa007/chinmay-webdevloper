@@ -19,7 +19,7 @@ const Projects = () => {
     {
       title: 'skill-loop ',
       description: 'SkillLoop is a full-stack skill exchange platform designed to connect learners and mentors through a coin-based ecosystem. Users can teach skills they are proficient in, earn virtual coins, and use those coins to learn new skills from others within the community. The platform encourages collaborative learning while rewarding knowledge sharing.',
-      image: '/skilloop.png',
+      image: '/public/skilloop- page.png',
       tags: ['React', 'node.js', 'Tailwind CSS', 'Framer Motion', 'backend', 'mongodb'],
       liveUrl: '#',
       githubUrl: '#',
