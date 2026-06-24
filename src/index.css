@@ -1,4 +1,5 @@
 /* Root Variables */
+/* dark mode  */
 :root {
   --primary: #3b82f6;
   --primary-dark: #1e40af;
@@ -21,14 +22,14 @@
   --primary: #2563eb;
   --primary-dark: #1d4ed8;
   --secondary: #7c3aed;
-  --accent: #db2777;
+  --accent: #6ba7f4;
   --background: #ffffff;
   --surface: #f8fafc;
   --surface-light: #e2e8f0;
-  --text-primary: #0f172a;
+  --text-primary: #0f172a; /* light mode */
   --text-secondary: #334155;
   --text-muted: #64748b;
-  --border: #e2e8f0;
+  --border: #f4f4ff29;
 }
 
 /* Global Reset */

@@ -3,14 +3,31 @@ import { motion } from 'framer-motion';
 import { FiArrowDown } from 'react-icons/fi';
 import styles from './Hero.module.css';
 
+
 /**
  * Hero Section - Typewriter effect and main CTA
  */
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
+  const [mousePosition, setMousePosition] = useState({
+    x: 0,
+    y: 0,
+  });
   const fullText = 'Full Stack Developer | GenAI Enthusiast';
   const typingSpeed = 100;
 
+  const skills = [
+    { name: "React" },
+    { name: "html" },
+    { name: "css" },
+    { name: "Node.js" },
+    { name: "Python" },
+    { name: "MongoDB" },
+    { name: "GenAI" },
+    { name: "Next.js" },
+    
+
+  ];
   // Typewriter effect
   useEffect(() => {
     let currentIndex = 0;
@@ -23,7 +40,28 @@ const Hero = () => {
       }
     }, typingSpeed);
 
+
     return () => clearInterval(typingInterval);
+  }, []);
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const x =
+        (e.clientX - window.innerWidth /2) ;
+
+      const y =
+        (e.clientY - window.innerHeight / 2) ;
+
+      setMousePosition({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener(
+        "mousemove",
+        handleMouseMove
+      );
+    };
   }, []);
 
   const containerVariants = {
@@ -55,6 +93,73 @@ const Hero = () => {
 
   return (
     <section id="hero" className={styles.hero}>
+      <motion.div
+  className={styles.cursorGlow}
+  animate={{
+    x: mousePosition.x * 0.2,
+    y: mousePosition.y * 0.2,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 40,
+    damping: 20,
+  }}
+/>
+        {/* Floating Skills */}
+
+<motion.div
+  className={styles.skillsContainer}
+
+>
+{skills.map((skill, index) => {
+ const depths = [
+  1.2,
+  0.8,
+  1.6,
+  1.1,
+  1.8,
+  0.9,
+  1.4,
+  2.0,
+];
+
+const depth = depths[index];
+
+  return (
+    <motion.div
+      key={index}
+      className={`${styles.skillCard} ${styles[`card${index + 1}`]}`}
+     animate={{
+  x: mousePosition.x * depth * 0.03,
+  y: mousePosition.y * depth * 0.03,
+  
+}}
+transition={{
+  x: {
+    type: "spring",
+    stiffness: 100,
+    damping: 20,
+  },
+  y: {
+    type: "spring",
+    stiffness: 100,
+    damping: 20,
+  },
+
+  
+}}
+whileHover={{
+    scale: 1.1,
+    y: -8,
+    rotate:1
+  }}
+
+    >
+      {skill.name}
+    </motion.div>
+  );
+})}
+</motion.div>
       <motion.div
         className={styles.container}
         variants={containerVariants}

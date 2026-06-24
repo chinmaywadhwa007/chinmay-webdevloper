@@ -1,6 +1,8 @@
 .hero {
   min-height: 100vh;
   display: flex;
+  position: relative;
+  overflow: hidden;
   align-items: center;
   justify-content: center;
   padding: 100px 20px 50px;
@@ -11,6 +13,7 @@
 .container {
   max-width: 1280px;
   width: 100%;
+  position: relative;
   text-align: center;
   z-index: 10;
 }
@@ -31,7 +34,8 @@
 }
 
 @keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(0deg);
   }
   25% {
@@ -53,7 +57,12 @@
 }
 
 .name {
-  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary),
+    var(--accent)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -81,10 +90,12 @@
 }
 
 @keyframes blink {
-  0%, 49% {
+  0%,
+  49% {
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 0;
   }
 }
@@ -139,8 +150,8 @@
 
 .scrollIndicator {
   position: absolute;
-  bottom: 40px;
-  left: 50%;
+  
+  left: 48%;
   transform: translateX(-50%);
   background: none;
   border: 2px solid var(--primary);
@@ -149,6 +160,7 @@
   height: 50px;
   border-radius: 50%;
   display: flex;
+
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -197,7 +209,7 @@
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .hero {
     min-height: 90vh;
     padding: 80px 15px 40px;
@@ -227,4 +239,114 @@
     width: 200px;
     height: 200px;
   }
+}
+/* floating skills  */
+.skillsContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.skillCard {
+  position: absolute;
+  padding: 18px 32px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+   box-shadow: 0 8px 32px rgba(0, 0, 0, .15);
+  transition:
+    transform 0.3s ease,
+    
+    border-color 0.3s ease;
+}
+[data-theme="light"] .skillCard {
+  background: rgba(224, 226, 235, 0.58);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #0f172a;
+  box-shadow:
+    0 8px 32px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+[data-theme="light"] .skillCard:hover {
+  background: white;
+  border-color: var(--primary);
+  color: #0f172a;
+  box-shadow:
+    0 0 25px rgba(37, 99, 235, 0.18),
+    0 15px 35px rgba(15, 23, 42, 0.08);
+}
+.skillCard:hover {
+  transform: translateY(-10px) scale(1.15);
+  border-color: var(--primary);
+    box-shadow:
+    0 0 30px rgba(96, 165, 250, 0.35),
+    0 20px 40px rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+}
+/* react js  */
+.card1 {
+  top: 18%;
+  left: 8%;
+}
+/* html */
+.card2 {
+  top: 38%;
+  left: 10%;
+}
+/* css */
+.card3 {
+  top: 66%;
+  left: 8%;
+}
+
+.card4 {
+  top: 14%;
+  right: 10%;
+}
+
+.card5 {
+  top: 35%;
+  right: 9%;
+}
+/* mongodb */
+.card6 {
+  top: 68%;
+  right: 9%;
+}
+
+.card7 {
+  top: 78%;
+  left: 55%;
+}
+
+.card8 {
+  top: 12%;
+  left: 65%;
+}
+.cursorGlow {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%; 
+  background: radial-gradient(
+    circle,
+    rgba(59,130,246,0.12)15%, transparent,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
 }

@@ -10,7 +10,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+   
     message: '',
   });
 
@@ -31,10 +31,7 @@ const Contact = () => {
       newErrors.email = 'Invalid email format';
     }
 
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'Subject is required';
-    }
-
+  
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
@@ -85,7 +82,7 @@ const Contact = () => {
     {
       icon: FiMail,
       label: 'Email',
-      value: 'chinmaywadhwa01@mail.com',
+      value: 'chinmaywadhwa01@gmail.com',
 
     },
     {
@@ -218,22 +215,7 @@ const Contact = () => {
               )}
             </div>
 
-            {/* Subject Field */}
-            <div className={styles.formGroup}>
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                className={errors.subject ? styles.error : ''}
-                placeholder="Subject"
-              />
-              {errors.subject && (
-                <span className={styles.errorText}>{errors.subject}</span>
-              )}
-            </div>
+        
 
             {/* Message Field */}
             <div className={styles.formGroup}>
