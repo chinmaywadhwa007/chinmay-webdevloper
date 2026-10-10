@@ -1,0 +1,574 @@
+/* ==========================================================================
+   Editorial Dark Foundation Design System
+   Chinmay Wadhwa — Modern Developer Portfolio
+   Pure Black + White + Charcoal + Subtle Grays
+   ========================================================================== */
+
+:root,
+[data-theme="light"],
+[data-theme="dark"] {
+  /* ==========================================================================
+     GLOBAL NEUTRAL EDITORIAL DARK PALETTE
+     Applies site-wide to Navbar, Home, About, Skills, Experience, Contact, Footer
+     ========================================================================== */
+
+  /* ---- Core palette (Single Source of Truth) ---- */
+  --bg: #0D0E0D;
+  --surface: #141615;
+  --surface-soft: #191B19;
+
+  --text-primary: #F3F0E8;
+  --text-secondary: #B7B2A8;
+  --text-muted: #77736B;
+
+  --border: rgba(235, 231, 220, 0.14);
+  --border-subtle: rgba(235, 231, 220, 0.06);
+  --border-default: rgba(235, 231, 220, 0.12);
+  --border-strong: rgba(235, 231, 220, 0.22);
+  --border-light: rgba(235, 231, 220, 0.08);
+  --border-dark: rgba(235, 231, 220, 0.18);
+
+  /* ---- Official Brand Color System ---- */
+  --accent-sage: #CDE8D5;
+  --accent-lavender: #D7C8FF;
+  --accent-peach: #FFCDB2;
+  --accent-butter: #FFE6BF;
+  --accent-cream: #FFE6BF;
+
+  /* Low-intensity tints for borders / fills / cards */
+  --sage-soft: rgba(205, 232, 213, 0.14);
+  --sage-line: rgba(205, 232, 213, 0.45);
+  --lavender-soft: rgba(215, 200, 255, 0.14);
+  --lavender-line: rgba(215, 200, 255, 0.4);
+  --peach-soft: rgba(255, 205, 178, 0.14);
+  --peach-line: rgba(255, 205, 178, 0.4);
+  --butter-soft: rgba(255, 230, 191, 0.14);
+  --butter-line: rgba(255, 230, 191, 0.4);
+  --sage-deep: #5A7B64;
+
+  /* Brand Ambient Glows */
+  --glow-sage: 0 0 24px rgba(205, 232, 213, 0.35);
+  --glow-lavender: 0 0 24px rgba(215, 200, 255, 0.35);
+  --glow-peach: 0 0 24px rgba(255, 205, 178, 0.35);
+  --glow-butter: 0 0 24px rgba(255, 230, 191, 0.35);
+
+  /* ---- Legacy aliases ---- */
+  --bg-main: var(--bg);
+  --bg-primary: var(--bg);
+  --background: var(--bg);
+
+  --bg-cream: var(--surface);
+  --bg-secondary: #111211;
+  --surface-secondary: var(--surface);
+
+  --surface-primary: var(--surface);
+  --surface-hover: var(--surface-soft);
+  --surface-elevated: var(--surface-soft);
+
+  --ink: var(--text-primary);
+  --charcoal: #D9D5CC;
+  --text-body: #D9D5CC;
+  --muted: var(--text-muted);
+  --text-supporting: var(--text-muted);
+  --text-placeholder: #57544E;
+  --text-inverse: #111111;
+
+  --sage: var(--accent-sage);
+  --lavender: var(--accent-lavender);
+  --peach: var(--accent-peach);
+  --cream: var(--accent-cream);
+  --accent-green: var(--accent-sage);
+  --accent-plum: var(--accent-lavender);
+  --accent-butter: var(--accent-cream);
+  --accent-terracotta: var(--accent-peach);
+
+  --apricot: var(--accent-sage);
+  --accent-apricot: var(--accent-sage);
+  --accent-orange: var(--accent-sage);
+
+  /* Action Buttons */
+  --btn-primary-bg: #F3F0E8;
+  --btn-primary-text: #111111;
+  --btn-primary-hover: #FFFFFF;
+  
+  --btn-secondary-bg: transparent;
+  --btn-secondary-border: rgba(235, 231, 220, 0.18);
+  --btn-secondary-text: #F3F0E8;
+  --btn-secondary-hover: rgba(174, 191, 167, 0.08);
+
+  --button-primary: #F3F0E8;
+  --button-primary-text: #111111;
+
+  /* Shadows (Subtle deep shadows) */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.65);
+  --shadow-hover: 0 14px 36px rgba(0, 0, 0, 0.7);
+
+  /* Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 9999px;
+
+  /* Legacy compatibility */
+  --primary: #F3F0E8;
+  --primary-dark: #D9D5CC;
+  --secondary: #77736B;
+  --accent: var(--accent-sage);
+  --surface-light: #1A1C1A;
+  --success: var(--accent-sage);
+  --warning: var(--accent-cream);
+  --error: #D99A94;
+
+  /* Typography Stacks */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+/* ==========================================================================
+   EXCLUSIVE PROJECTS PAGE THEME: FOREST GREEN & CHARCOAL
+   Applied strictly to the Projects Page (/projects) — NOT in navbar, nowhere else
+   ========================================================================== */
+.projectsPageTheme,
+[data-page="projects"] {
+  /* Exact Forest Green & Charcoal Palette */
+  --bg: #0B0D0C;                 /* Main background: CHARCOAL */
+  --surface: #10271D;            /* Dark green surface: DEEP FOREST */
+  --surface-soft: #143224;       /* Lifted dark green surface */
+
+  --text-primary: #F2F0E8;       /* Main text: WARM WHITE */
+  --text-secondary: #B0BEB4;     /* Secondary text (pale sage gray) */
+  --text-muted: #6B7B70;         /* Muted forest supporting text */
+
+  --border: rgba(193, 212, 197, 0.14); /* Subtle pale sage border */
+  --border-subtle: rgba(193, 212, 197, 0.07);
+  --border-default: rgba(193, 212, 197, 0.14);
+  --border-strong: rgba(143, 175, 152, 0.28);
+  --border-light: rgba(193, 212, 197, 0.09);
+  --border-dark: rgba(193, 212, 197, 0.18);
+
+  /* Semantic green accents */
+  --forest-green: #183A2A;       /* Primary brand accent: FOREST GREEN */
+  --deep-forest: #10271D;        /* Dark green surface: DEEP FOREST */
+  --dark-green: #1F4A35;         /* Secondary accent: DARK GREEN */
+  --muted-forest: #37664B;       /* Hover / secondary states: MUTED FOREST */
+  --soft-sage: #8FAF98;          /* Active / selected states: SOFT SAGE */
+  --pale-sage: #C1D4C5;          /* Small highlights: PALE SAGE */
+  --warm-white: #F2F0E8;         /* Main text: WARM WHITE */
+  --charcoal: #0B0D0C;           /* Main background: CHARCOAL */
+
+  /* Workspace aliases */
+  --accent-sage: #8FAF98;        /* SOFT SAGE — Active / selected states */
+  --accent-lavender: #37664B;    /* MUTED FOREST — Hover / secondary states */
+  --accent-peach: #1F4A35;       /* DARK GREEN — Secondary accent */
+  --accent-cream: #C1D4C5;       /* PALE SAGE — Small highlights */
+  --accent-brand: #183A2A;       /* FOREST GREEN — Primary brand accent */
+
+  /* Low-intensity tints */
+  --sage-soft: rgba(143, 175, 152, 0.15);
+  --sage-line: rgba(143, 175, 152, 0.45);
+  --forest-soft: rgba(24, 58, 42, 0.35);
+  --muted-forest-soft: rgba(55, 102, 75, 0.22);
+  --pale-sage-soft: rgba(193, 212, 197, 0.14);
+  --lavender-soft: rgba(55, 102, 75, 0.22);
+  --lavender-line: rgba(55, 102, 75, 0.5);
+  --peach-soft: rgba(31, 74, 53, 0.28);
+  --sage-deep: #183A2A;
+
+  --bg-main: var(--bg);
+  --bg-primary: var(--bg);
+  --background: var(--bg);
+  --surface-primary: var(--surface);
+  --surface-hover: var(--surface-soft);
+  --surface-elevated: var(--surface-soft);
+
+  --btn-primary-bg: #F2F0E8;
+  --btn-primary-text: #0B0D0C;
+  --btn-primary-hover: #FFFFFF;
+
+  --btn-secondary-bg: #10271D;
+  --btn-secondary-border: rgba(193, 212, 197, 0.2);
+  --btn-secondary-text: #F2F0E8;
+  --btn-secondary-hover: rgba(55, 102, 75, 0.35);
+
+  background-color: #0B0D0C;
+  color: #F2F0E8;
+}
+
+/* ==========================================================================
+   EXCLUSIVE SKILLS & TECHNICAL PLAYGROUND THEME:
+   DUSTY LAVENDER + SOFT PEACH + WARM CREAM ON CHARCOAL BLACK
+   Applied exclusively to the Skills section / Skills page
+   ========================================================================== */
+.skillsTheme,
+#skills,
+[data-section="skills"],
+[data-page="skills"] {
+  /* Exact Technical Playground Palette */
+  --bg: #0B0C0C;                 /* Main background: #0B0C0C */
+  --surface: #101111;            /* Technical canvas / surface: #101111 */
+  --surface-soft: #161717;       /* Lifted surface */
+
+  --text-primary: #F3F0E8;       /* Primary text: #F3F0E8 */
+  --text-secondary: #A7A39B;     /* Secondary text: #A7A39B */
+  --text-muted: #7E7A73;         /* Supporting text */
+
+  /* Lavender Accents */
+  --lavender: #B8A9C9;           /* PRIMARY ACCENT — DUSTY LAVENDER #B8A9C9 */
+  --accent-lavender: #B8A9C9;
+  --lavender-dark: #51465F;       /* DARK LAVENDER #51465F */
+  --lavender-light: #D0C5DC;      /* LIGHT LAVENDER #D0C5DC */
+
+  /* Peach & Cream Accents */
+  --accent-peach: #D9A895;        /* SECONDARY ACCENT — SOFT PEACH #D9A895 */
+  --peach: #D9A895;
+  --accent-cream: #DCCFB5;        /* HIGHLIGHT — WARM CREAM #DCCFB5 */
+  --cream: #DCCFB5;
+
+  /* Zero green aliases inside skills */
+  --accent-sage: #B8A9C9;
+  --sage: #B8A9C9;
+  --sage-soft: rgba(184, 169, 201, 0.12);
+  --sage-line: rgba(184, 169, 201, 0.38);
+
+  --lavender-soft: rgba(184, 169, 201, 0.12);
+  --lavender-line: rgba(184, 169, 201, 0.40);
+  --peach-soft: rgba(217, 168, 149, 0.14);
+  --cream-soft: rgba(220, 207, 181, 0.14);
+
+  --border: rgba(184, 169, 201, 0.12);
+  --border-subtle: rgba(184, 169, 201, 0.06);
+  --border-default: rgba(184, 169, 201, 0.12);
+  --border-strong: rgba(184, 169, 201, 0.28);
+  --border-light: rgba(184, 169, 201, 0.08);
+
+  --bg-main: var(--bg);
+  --bg-primary: var(--bg);
+  --background: var(--bg);
+  --surface-primary: var(--surface);
+  --surface-hover: var(--surface-soft);
+  --surface-elevated: var(--surface-soft);
+
+  background-color: #0B0C0C;
+  color: #F3F0E8;
+}
+
+/* ==========================================================================
+   EXCLUSIVE EXPERIENCE & JOURNEY THEME:
+   ICE BLUE / FROST SYSTEM ON CHARCOAL BLACK
+   Applied exclusively to the Experience section / Experience page
+   ========================================================================== */
+.experienceTheme,
+.experiencePageTheme,
+#experience,
+[data-section="experience"],
+[data-page="experience"] {
+  /* Exact Experience & Journey Palette */
+  --bg: #0B0D0D;                 /* Main background: #0B0D0D */
+  --surface: #111313;            /* Timeline surface: #111313 */
+  --surface-soft: #161A1B;       /* Lifted surface */
+
+  --text-primary: #F2F0E9;       /* Primary text: #F2F0E9 */
+  --text-secondary: #9A9C99;     /* Secondary text: #9A9C99 */
+  --text-muted: #626865;         /* Muted text: #626865 */
+
+  /* Ice Blue Accents */
+  --ice-deep: #23434A;           /* DEEP ICE: #23434A */
+  --ice-muted: #5E8C96;          /* MUTED ICE: #5E8C96 */
+  --ice-primary: #9CC9D4;        /* PRIMARY ICE: #9CC9D4 */
+  --ice-pale: #C9E5E8;           /* PALE ICE: #C9E5E8 */
+  --frost: #E4F0EE;              /* FROST: #E4F0EE */
+
+  /* Aliases for components */
+  --accent-ice: #9CC9D4;
+  --accent-frost: #E4F0EE;
+  --accent-muted: #5E8C96;
+
+  /* Neutral & Themed Borders */
+  --border: rgba(156, 201, 212, 0.14);
+  --border-subtle: rgba(156, 201, 212, 0.08);
+  --border-default: rgba(156, 201, 212, 0.14);
+  --border-strong: rgba(156, 201, 212, 0.32);
+  --border-active: rgba(156, 201, 212, 0.35);
+
+  --bg-main: var(--bg);
+  --bg-primary: var(--bg);
+  --background: var(--bg);
+  --surface-primary: var(--surface);
+  --surface-hover: var(--surface-soft);
+  --surface-elevated: var(--surface-soft);
+
+  background-color: #0B0D0D;
+  color: #F2F0E9;
+}
+
+/* ==========================================================================
+   EXCLUSIVE ABOUT & CAREER DOSSIER THEME:
+   REFINED CARROT / TERRACOTTA SYSTEM ON DEEP BLACK (#0A0A09)
+   Applied exclusively to About section, Career Dossier, and About page
+   ========================================================================== */
+.aboutTheme,
+.aboutPageTheme,
+#about,
+#resume,
+[data-section="about"],
+[data-section="resume"],
+[data-page="about"] {
+  /* Core Surfaces & Palette */
+  --bg: #0A0A09;                 /* Background: #0A0A09 */
+  --surface: #111110;            /* Primary Surface: #111110 */
+  --surface-secondary: #151413;  /* Secondary Surface: #151413 */
+  --surface-subtle: #1A1817;     /* Subtle Surface: #1A1817 */
+  --surface-soft: #151413;
+
+  /* Typography Colors */
+  --text-primary: #F2EFE8;       /* Primary Text: Warm White */
+  --text-secondary: #AAA39B;     /* Secondary Text */
+  --text-muted: #77716C;         /* Muted Text */
+
+  /* Carrot Color Family */
+  --terracotta-deep: #7A3023;    /* Deep Terracotta: active backgrounds, selected states, dark badges, timeline foundations */
+  --carrot-dark: #A83F2D;        /* Dark Carrot: secondary active states, timeline progression, subtle borders, important indicators */
+  --carrot-primary: #D95A3A;     /* Primary Carrot: primary accent, active timeline node, active navigation, important underline, selected controls */
+  --carrot-soft: #E8785F;        /* Soft Carrot: hover, cursor interaction, secondary highlights, animated states */
+  --carrot-pale: #F0B09D;        /* Pale Carrot: tiny selected text, active node centers, subtle icon highlights, small metadata emphasis */
+
+  /* Interaction and Semantic tokens */
+  --carrot-line: rgba(217, 90, 58, 0.20);
+  --carrot-border: rgba(217, 90, 58, 0.30);
+  --carrot-border-hover: rgba(217, 90, 58, 0.35);
+  --carrot-ring: rgba(217, 90, 58, 0.25);
+  --terracotta-bg: rgba(122, 48, 35, 0.22);
+
+  /* Timeline tokens */
+  --timeline-base: #292522;
+  --timeline-past: #7A3023;
+  --timeline-prev: #A83F2D;
+  --timeline-current: #D95A3A;
+  --timeline-center: #F0B09D;
+  --timeline-ring: rgba(217, 90, 58, 0.25);
+
+  /* Universal borders */
+  --border: rgba(242, 239, 232, 0.10);
+  --border-subtle: rgba(242, 239, 232, 0.06);
+  --border-default: rgba(242, 239, 232, 0.10);
+  --border-strong: rgba(217, 90, 58, 0.30);
+  --border-light: rgba(242, 239, 232, 0.08);
+
+  --bg-main: var(--bg);
+  --bg-primary: var(--bg);
+  --background: var(--bg);
+  --surface-primary: var(--surface);
+  --surface-hover: var(--surface-secondary);
+  --surface-elevated: var(--surface-secondary);
+
+  background-color: #0A0A09;
+  color: #F2EFE8;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Subtle technical editorial fine dot grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.08) 0.85px, transparent 0.85px);
+  background-size: 24px 24px;
+  opacity: 0.65;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+code, pre {
+  font-family: var(--font-mono);
+}
+
+/* Selection Color (soft sage overlay) */
+::selection {
+  background-color: rgba(143, 175, 152, 0.35);
+  color: #FFFFFF;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #183A2A;
+  border-radius: 9999px;
+  border: 2px solid var(--bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #37664B;
+}
+
+/* Links */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-sage);
+}
+
+/* Buttons Base */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Inputs & Form Elements */
+input,
+textarea,
+select {
+  font-family: inherit;
+  color: var(--text-primary);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  font-size: 0.95rem;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-sage);
+  background-color: var(--surface-soft);
+  box-shadow: 0 0 0 3px var(--sage-soft);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #77746D;
+}
+
+/* Container Utility */
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Editorial Badge Utility */
+.editorial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 14px;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Subtle Restrained Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

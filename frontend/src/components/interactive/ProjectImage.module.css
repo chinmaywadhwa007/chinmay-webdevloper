@@ -1,0 +1,153 @@
+/* ==========================================================================
+   ProjectImage Component Styles — Compact Editorial Mockup
+   Streamlined browser chrome, 16:9 media viewport, subtle physical hover
+   ========================================================================== */
+
+.imageWrapper {
+  width: 100%;
+  position: relative;
+  background-color: #0E0E0D;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Floating Glass Live Badge (Top-Right of Media) */
+.floatingLiveBadge {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(17, 17, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.liveBadgeSage {
+  border-color: rgba(174, 191, 167, 0.35);
+  color: #AEBFA7;
+}
+
+.liveBadgePeach {
+  border-color: rgba(231, 184, 168, 0.35);
+  color: #E7B8A8;
+}
+
+.liveBadgeButter {
+  border-color: rgba(174, 191, 167, 0.35);
+  color: #AEBFA7;
+}
+
+.liveDotWrapper {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.liveDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: currentColor;
+  animation: pulseLiveDot 2.4s infinite ease-in-out;
+}
+
+/* Expanding ring on hover */
+.liveDotRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.imageWrapper:hover .liveDotRing {
+  animation: ringExpand 1.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes pulseLiveDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes ringExpand {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.4);
+    opacity: 0;
+  }
+}
+
+/* Media Viewport Container — Pure, Uncluttered 16:9 Showcase */
+.mediaViewport {
+  position: relative;
+  width: 100%;
+  height: 205px;
+  overflow: hidden;
+  background-color: #0E0E0D;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  will-change: transform;
+  transform: scale(1);
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageWrapper:hover .projectImage {
+  transform: scale(1.015);
+}
+
+/* Subtle Cursor-Following Radial Surface Highlight */
+.surfaceHighlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: soft-light;
+  will-change: background, opacity;
+}
+
+.imageWrapper:hover .surfaceHighlight {
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .mediaViewport {
+    height: 170px;
+  }
+}

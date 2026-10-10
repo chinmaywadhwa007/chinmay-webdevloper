@@ -1,0 +1,40 @@
+.backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #171716;
+  color: #F5F3EE;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.backToTop:hover {
+  background-color: #191918;
+  border-color: #AEBFA7;
+  color: #AEBFA7;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(174, 191, 167, 0.25);
+}
+
+.backToTop:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .backToTop {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 40px;
+    height: 40px;
+  }
+}

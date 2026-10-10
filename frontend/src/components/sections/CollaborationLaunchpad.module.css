@@ -1,0 +1,648 @@
+/* ==========================================================================
+   Collaboration Launchpad — Final Interactive CTA Destination
+   Warm editorial aesthetics, subtle interactive signal lines, quiet pastels.
+   ========================================================================== */
+
+.launchpadContainer {
+  position: relative;
+  max-width: 1100px;
+  margin: 2.5rem auto 6rem auto;
+  border-radius: var(--radius-xl);
+  background-color: #151514;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  padding: 4.5rem 32px 3.5rem 32px;
+  text-align: center;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.launchpadContainer:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Ambient pointer-reactive soft light fields (Pastel Editorial Atmosphere) ── */
+
+.ambientFieldLavender {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 187, 211, 0.08) 0%, transparent 70%);
+  filter: blur(55px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientFieldSage {
+  position: absolute;
+  bottom: -60px;
+  left: -50px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(174, 191, 167, 0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambientFieldPeach {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(231, 184, 168, 0.07) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Subtle Signal Line on Container Hover ─────────────── */
+
+.signalHeaderBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 2rem;
+  opacity: 0.35;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+}
+
+.launchpadContainer:hover .signalHeaderBar {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+.signalWord {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #77746D;
+}
+
+.signalArrow {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Main Content Wrapper ───────────────────────────────────────────────── */
+
+.mainContent {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* ─── Eyebrow Tag ────────────────────────────────────────────────────────── */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #77746D;
+  margin-bottom: 1.25rem;
+}
+
+/* ─── Hero Headline ──────────────────────────────────────────────────────── */
+
+.heroTitle {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #F5F3EE;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  margin-bottom: 1.25rem;
+  font-family: var(--font-sans);
+}
+
+.heroTitleSuccess {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #F5F3EE;
+}
+
+.successIcon {
+  color: #F5F3EE;
+  font-size: 1em;
+}
+
+.supportingText {
+  color: #A8A59E;
+  font-size: clamp(0.96rem, 1.8vw, 1.12rem);
+  line-height: 1.65;
+  margin: 0 auto 2.25rem auto;
+  max-width: 580px;
+}
+
+/* ─── CTA Buttons Group ─────────────────────────────────────────── */
+
+.ctaButtonGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 1.85rem;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  border-radius: var(--radius-pill);
+  background-color: #F5F3EE;
+  color: #111110;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.94rem;
+  letter-spacing: -0.01em;
+  border: 1px solid #F5F3EE;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: background-color 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #AEBFA7;
+  border-color: #AEBFA7;
+  color: #0B0B0A;
+  box-shadow: 0 8px 24px rgba(174, 191, 167, 0.35);
+}
+
+.primaryBtnActive {
+  background-color: #AEBFA7;
+  border-color: #AEBFA7;
+  color: #0B0B0A;
+}
+
+.btnMailIcon {
+  transition: transform 0.22s ease;
+}
+
+.btnArrowIcon {
+  transition: transform 0.22s ease;
+}
+
+.primaryBtn:hover .btnMailIcon {
+  transform: translateX(2px);
+}
+
+.primaryBtn:hover .btnArrowIcon {
+  transform: translateX(3px);
+}
+
+.primaryBtnText {
+  transition: transform 0.2s ease;
+}
+
+.primaryBtn:hover .primaryBtnText {
+  transform: translateX(1px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  color: #F5F3EE;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.94rem;
+  letter-spacing: -0.01em;
+  box-shadow: none;
+  cursor: pointer;
+  transition: border-color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.secondaryBtn:hover {
+  background-color: rgba(231, 184, 168, 0.08);
+  border-color: rgba(231, 184, 168, 0.45);
+  color: #E7B8A8;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.secondaryBtnActive {
+  border-color: rgba(231, 184, 168, 0.5);
+  background-color: rgba(231, 184, 168, 0.1);
+  color: #E7B8A8;
+}
+
+.bracketLeft,
+.bracketRight {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: transform 0.22s ease, color 0.22s ease;
+}
+
+.secondaryBtn:hover .bracketLeft {
+  transform: translateX(-3px);
+  color: var(--text-primary);
+}
+
+.secondaryBtn:hover .bracketRight {
+  transform: translateX(3px);
+  color: var(--text-primary);
+}
+
+/* ─── Availability Status Row (Requirement 2) ────────────────────────────── */
+
+.availabilityRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  cursor: default;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.availabilityRow:hover {
+  background-color: #191918;
+  border-color: rgba(255, 255, 255, 0.20);
+}
+
+.availDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+  box-shadow: 0 0 8px rgba(174, 191, 167, 0.6);
+  animation: availPulse 2.8s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes availPulse {
+  0%, 100% {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+}
+
+.availText {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #A8A59E;
+  transition: color 0.2s ease;
+}
+
+.availabilityRow:hover .availText {
+  color: #F5F3EE;
+}
+
+/* ─── Horizontal Divider ─────────────────────────────────────────────────── */
+
+.horizontalDivider {
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.08) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  margin: 2.25rem 0;
+}
+
+/* ─── Collaboration Types Editorial Strip (Requirement 3) ─────────────────── */
+
+.collabStrip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.collabItem {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B8B5AE;
+  cursor: default;
+  transition: color 0.2s ease;
+  padding-bottom: 3px;
+}
+
+.collabItem:hover {
+  color: #F5F3EE;
+}
+
+.collabUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: var(--underline-accent, #F5F3EE);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.collabItem:hover .collabUnderline {
+  width: 100%;
+}
+
+.collabDot {
+  color: rgba(255, 255, 255, 0.20);
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* ─── Compact "HOW WE START" Workflow (Requirements 4, 5, 6, 8) ──────────── */
+
+.workflowSection {
+  margin: 0.5rem 0;
+}
+
+.workflowTag {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #77746D;
+  margin-bottom: 1.5rem;
+}
+
+.workflowTrack {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.signalProgressLine {
+  position: absolute;
+  top: 17px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.10);
+  z-index: 0;
+}
+
+.signalHead {
+  position: absolute;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+  box-shadow: 0 0 8px rgba(174, 191, 167, 0.6);
+  opacity: 0;
+}
+
+.workflowStepsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.workflowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 6px 6px;
+  border-radius: 12px;
+  cursor: default;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.workflowStepActive {
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: translateY(-2px);
+}
+
+.stepNum {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #F5F3EE;
+  margin-bottom: 8px;
+  transition: border-color 0.22s ease, background-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.workflowStepActive .stepNum {
+  border-color: var(--step-accent, rgba(255, 255, 255, 0.35));
+  background-color: #191918;
+  color: var(--step-accent, #F5F3EE);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.stepTitle {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F5F3EE;
+  white-space: nowrap;
+}
+
+.stepAnnotationWrap {
+  min-height: 28px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepAnnotation {
+  font-size: 0.74rem;
+  color: #77746D;
+  font-style: italic;
+  max-width: 170px;
+  line-height: 1.35;
+}
+
+/* ─── Ultra-Slow Tech Stack Marquee (Requirement 7) ──────────────────────── */
+
+.marqueeContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 6px 0;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: slowMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.marqueePaused {
+  animation-play-state: paused;
+}
+
+@keyframes slowMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.techMarqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  cursor: default;
+  transition: background-color 0.2s ease;
+}
+
+.techMarqueeItem:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+.techMarqueeName {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #B8B5AE;
+  transition: color 0.2s ease, font-weight 0.2s ease;
+  position: relative;
+}
+
+.techMarqueeItem:hover .techMarqueeName {
+  color: #F5F3EE;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--tech-accent, #F5F3EE);
+  text-underline-offset: 3px;
+}
+
+.techMarqueeDot {
+  color: rgba(255, 255, 255, 0.20);
+  font-size: 0.85rem;
+  user-select: none;
+}
+
+/* ─── Responsive Adaptation ──────────────────────────────────────────────── */
+
+@media (max-width: 840px) {
+  .workflowStepsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .signalProgressLine {
+    display: none;
+  }
+
+  .collabStrip {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .launchpadContainer {
+    padding: 3rem 16px 2.5rem 16px;
+    margin: 1.5rem 14px 4rem 14px;
+  }
+
+  .ctaButtonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .workflowStepsRow {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .stepAnnotation {
+    max-width: 260px;
+  }
+
+  .signalHeaderBar {
+    display: none;
+  }
+}
+
+/* ─── Reduced Motion (Requirement 20) ────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none !important;
+    transform: none !important;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .availDot {
+    animation: none !important;
+  }
+
+  .signalProgressLine {
+    display: none !important;
+  }
+
+  .ambientFieldLavender,
+  .ambientFieldSage,
+  .ambientFieldPeach {
+    transition: none !important;
+  }
+}

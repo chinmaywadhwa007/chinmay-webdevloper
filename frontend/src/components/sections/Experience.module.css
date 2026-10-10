@@ -1,0 +1,976 @@
+/* ==========================================================================
+   Interactive Career Timeline — Experience & Journey
+   Visual Identity: Ice Blue / Frost on Deep Charcoal (#0B0D0D)
+   Palette:
+     BACKGROUND:   #0B0D0D (dominant charcoal black)
+     SURFACE:      #111313
+     DEEP ICE:     #23434A
+     MUTED ICE:    #5E8C96
+     PRIMARY ICE:  #9CC9D4
+     PALE ICE:     #C9E5E8
+     FROST:        #E4F0EE
+     TEXT PRIMARY: #F2F0E9
+     TEXT SECOND:  #9A9C99
+     TEXT MUTED:   #626865
+   ========================================================================== */
+
+.experience {
+  padding: 6.5rem 24px 8.5rem;
+  background-color: #0B0D0D;
+  color: #F2F0E9;
+  position: relative;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+/* ─── Section Header ──────────────────────────────── */
+
+.sectionHeader {
+  margin-bottom: 3.5rem;
+}
+
+.headerTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #9A9C99;
+  opacity: 0;
+}
+
+.eyebrowNumber {
+  color: #9CC9D4;
+  font-weight: 800;
+}
+
+.eyebrowSep {
+  color: rgba(156, 201, 212, 0.35);
+  font-size: 0.75rem;
+}
+
+/* Subtle Editorial Sound Toggle Control */
+.soundToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: #111313;
+  border: 1px solid rgba(156, 201, 212, 0.18);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #9A9C99;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.soundToggle:hover {
+  border-color: rgba(156, 201, 212, 0.35);
+  color: #F2F0E9;
+  transform: translateY(-1px);
+}
+
+.soundIndicatorDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #626865;
+  transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.soundToggleOn .soundIndicatorDot {
+  background-color: #9CC9D4; /* Primary Ice */
+  box-shadow: 0 0 8px rgba(156, 201, 212, 0.6);
+}
+
+.soundToggleOff .soundIndicatorDot {
+  background-color: #626865;
+  opacity: 0.6;
+}
+
+.soundToggleOn {
+  border-color: rgba(156, 201, 212, 0.42);
+  background-color: rgba(156, 201, 212, 0.10);
+  color: #F2F0E9;
+}
+
+.soundToggleOff {
+  opacity: 0.75;
+}
+
+.sectionTitle {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #F2F0E9;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 0.85rem;
+  overflow: visible;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.3em;
+}
+
+.titleWord {
+  display: inline-block;
+  opacity: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Frosted Ice Typographic Accent on "Experience" — Not a background highlighter */
+.experienceWord {
+  color: #9CC9D4;
+  background: linear-gradient(180deg, #E4F0EE 0%, #C9E5E8 35%, #9CC9D4 85%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: filter 0.25s ease, letter-spacing 0.25s ease;
+  cursor: default;
+}
+
+.experienceWord:hover {
+  filter: brightness(1.1);
+  letter-spacing: -0.01em;
+}
+
+/* Ice Underline Accent on "compounds." */
+.compoundWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.iceUnderlineSvg {
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 7px;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 1.8vw, 1.1rem);
+  color: #9A9C99;
+  max-width: 640px;
+  line-height: 1.65;
+  opacity: 0;
+  margin-bottom: 2rem;
+}
+
+.subKeyword {
+  color: #C9E5E8;
+  font-weight: 500;
+}
+
+/* Career Counter Summary Row */
+.careerCounterRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  opacity: 0;
+  padding: 0.6rem 1.1rem;
+  background-color: #111313;
+  border: 1px solid rgba(156, 201, 212, 0.16);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+.counterItem {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.4rem;
+}
+
+.counterNum {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.counterAccent_mutedIce { color: #5E8C96; }
+.counterAccent_primaryIce { color: #9CC9D4; }
+
+.counterLabel {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #9A9C99;
+}
+
+.counterSep {
+  color: rgba(156, 201, 212, 0.20);
+  font-size: 0.9rem;
+  padding: 0 0.2rem;
+}
+
+/* ─── Timeline Layout ─────────────────────────────── */
+
+.timelineLayout {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2.25rem;
+  align-items: start;
+  position: relative;
+}
+
+/* ─── Left Column: Sticky Progressive Timeline ────── */
+
+.timelineLeft {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  height: 560px;
+  user-select: none;
+}
+
+/* Vertical Step Counter */
+.progressCounter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  left: -1.75rem;
+  top: 0;
+  z-index: 10;
+}
+
+.progressStep {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #626865;
+  padding: 0.3rem 0.2rem;
+  line-height: 1;
+  transition: all 0.22s ease;
+  letter-spacing: 0.04em;
+  opacity: 0.55;
+}
+
+.progressStep:hover,
+.progressStepActive {
+  color: #9CC9D4;
+  opacity: 1;
+  font-weight: 800;
+  transform: scale(1.22);
+  text-shadow: 0 0 10px rgba(156, 201, 212, 0.55);
+}
+
+/* SVG Line Track with Moving Tracer Bead */
+.svgTrackWrapper {
+  position: relative;
+  width: 44px;
+  height: 520px;
+  display: flex;
+  justify-content: center;
+}
+
+.svgLine {
+  width: 12px;
+  height: 100%;
+  overflow: visible;
+}
+
+.tracerGlow {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  will-change: cy, opacity;
+}
+
+.tracerCore {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+  will-change: cy, opacity;
+}
+
+/* Nodes centered exactly on the line coordinate */
+.nodeWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* Chapter Year Label — Frosted dark pill badge floating above circle */
+.chapterMarker {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #0B0D0D;
+  border: 1px solid rgba(156, 201, 212, 0.18);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 6;
+  opacity: 0;
+  transition: opacity 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nodeActive .chapterMarker,
+.timelineNode:hover ~ .chapterMarker {
+  border-color: rgba(156, 201, 212, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.85), 0 0 12px rgba(156, 201, 212, 0.20);
+}
+
+.nodeActive .chapterYear {
+  color: #F2F0E9;
+}
+
+.nodeActive .chapterTag {
+  color: #9CC9D4;
+}
+
+.chapterYear {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 900;
+  color: #F2F0E9;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.chapterTag {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  font-weight: 600;
+  color: #9A9C99;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-align: center;
+  margin-top: 1px;
+}
+
+/* Interactive Timeline Node Button */
+.timelineNode {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  outline: none;
+}
+
+/* Inactive Hollow Base Circle */
+.markerBaseCircle {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: 1.5px solid #23434A;
+  background-color: #0B0D0D;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+  z-index: 2;
+}
+
+.timelineNode:hover .markerBaseCircle,
+.nodeCurrentActive .markerBaseCircle {
+  transform: scale(1.15);
+  border-color: var(--node-color, #9CC9D4);
+}
+
+/* Active Outer Accent Ring (scale 0.7 -> 1, opacity 0 -> 1 via GSAP) */
+.markerOuterRing {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--node-color, #9CC9D4);
+  background-color: var(--node-ring-bg, rgba(156, 201, 212, 0.20));
+  opacity: 0;
+  transform: scale(0.7);
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform, opacity;
+}
+
+.nodeCurrentActive .markerOuterRing {
+  animation: breathingFrost 2.8s ease-in-out infinite;
+}
+
+/* Active Inner Filled Dot (scale 0 -> 1 via GSAP) */
+.markerInnerDot {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--node-center, var(--node-color, #9CC9D4));
+  opacity: 0;
+  transform: scale(0);
+  z-index: 3;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+/* Ice Blue Milestone Node Tokens */
+.node_mutedIce {
+  --node-color: #5E8C96;
+  --node-ring-bg: rgba(94, 140, 150, 0.20);
+  --node-center: #5E8C96;
+}
+
+.node_primaryIce {
+  --node-color: #9CC9D4;
+  --node-ring-bg: rgba(156, 201, 212, 0.25);
+  --node-center: #E4F0EE; /* Frost Center for active Current role */
+}
+
+/* Micro-interaction Hover Label beside marker */
+.markerHoverPill {
+  position: absolute;
+  left: calc(100% + 9px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #F2F0E9;
+  background-color: #111313;
+  border: 1px solid rgba(156, 201, 212, 0.22);
+  border-radius: var(--radius-pill);
+  padding: 2px 7px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 10;
+}
+
+.timelineNode:hover .markerHoverPill {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ─── Journey Extender Line at Bottom of Rail ─────── */
+
+.journeyExtender {
+  position: absolute;
+  bottom: -44px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.45;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
+}
+
+.journeyExtenderActive {
+  opacity: 1;
+  transform: translateX(-50%) translateY(2px);
+}
+
+.extenderLine {
+  width: 2px;
+  height: 24px;
+  background: repeating-linear-gradient(
+    to bottom,
+    #9CC9D4,
+    #9CC9D4 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.nextChapterBadge {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 800;
+  color: #9CC9D4;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.nextChapterArrow {
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+/* ─── Right Column: Milestone Cards ──────────────── */
+
+.timelineRight {
+  display: flex;
+  flex-direction: column;
+  gap: 3.25rem;
+}
+
+.milestoneRow {
+  position: relative;
+  will-change: transform;
+}
+
+/* ─── "JOURNEY CONTINUES" Section Exit Connector ───────
+   Not inside a card. Distinct editorial ice-blue divider.
+   ─────────────────────────────────────────────────── */
+.sectionConnector {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  user-select: none;
+}
+
+.connectorLine {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(156, 201, 212, 0.20));
+}
+
+.connectorLine:last-child {
+  background: linear-gradient(90deg, rgba(156, 201, 212, 0.20), transparent);
+}
+
+.connectorContent {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.connectorDot {
+  font-size: 0.7rem;
+  color: #9CC9D4;
+  animation: breathingFrost 3s ease-in-out infinite;
+}
+
+.connectorLabel {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #F2F0E9;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.connectorSublabel {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: #9A9C99;
+}
+
+/* ─── Experience Inspector Modal / Drawer ─────────── */
+
+.inspectorOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(11, 13, 13, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: fadeInOverlay 0.25s ease-out;
+}
+
+.inspectorModal {
+  max-width: 660px;
+  width: 100%;
+  background-color: #111313;
+  border: 1px solid rgba(156, 201, 212, 0.28);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 35px rgba(35, 67, 74, 0.35);
+  padding: 2.25rem 2.5rem;
+  position: relative;
+  max-height: 88vh;
+  overflow-y: auto;
+  animation: scaleInModal 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.inspectorHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(156, 201, 212, 0.14);
+}
+
+.inspectorHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.inspectorTag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9CC9D4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.inspectorCurrentBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #E4F0EE;
+  background-color: rgba(156, 201, 212, 0.15);
+  border: 1px solid rgba(156, 201, 212, 0.35);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.inspectorPulseDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #9CC9D4;
+  animation: breathingFrost 2.5s ease-in-out infinite;
+}
+
+.inspectorCloseBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(156, 201, 212, 0.20);
+  color: #9A9C99;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.inspectorCloseBtn:hover {
+  color: #F2F0E9;
+  border-color: rgba(156, 201, 212, 0.50);
+  background-color: rgba(156, 201, 212, 0.10);
+  transform: scale(1.05);
+}
+
+.inspectorIdentity {
+  margin-bottom: 1.5rem;
+}
+
+.inspectorRole {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #F2F0E9;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.35rem;
+  line-height: 1.2;
+}
+
+.inspectorCompanyRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.inspectorCompany {
+  font-weight: 600;
+  color: #9CC9D4;
+}
+
+.inspectorDot {
+  color: rgba(156, 201, 212, 0.35);
+}
+
+.inspectorPeriod {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: #9A9C99;
+}
+
+.inspectorDuration {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #C9E5E8;
+  background-color: rgba(156, 201, 212, 0.08);
+  border: 1px solid rgba(156, 201, 212, 0.18);
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+}
+
+.inspectorSection {
+  margin-bottom: 1.35rem;
+}
+
+.inspectorSectionTitle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #9CC9D4;
+  text-transform: uppercase;
+  margin-bottom: 0.65rem;
+}
+
+.inspectorSummary {
+  font-size: 0.92rem;
+  color: #F2F0E9;
+  line-height: 1.65;
+}
+
+.inspectorContributionsList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0;
+  margin: 0;
+}
+
+.inspectorContributionItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  color: #F2F0E9;
+  line-height: 1.5;
+}
+
+.inspectorCheckIcon {
+  color: #9CC9D4;
+  font-weight: 900;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  margin-top: 1px;
+}
+
+.inspectorContributionText {
+  color: #F2F0E9;
+}
+
+.inspectorStackChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.inspectorChip {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #C9E5E8;
+  background-color: rgba(35, 67, 74, 0.35);
+  border: 1px solid rgba(156, 201, 212, 0.22);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.inspectorChip:hover,
+.inspectorChipActive {
+  border-color: #9CC9D4;
+  background-color: rgba(156, 201, 212, 0.20);
+  color: #F2F0E9;
+  transform: translateY(-1px);
+}
+
+/* ─── Animations ──────────────────────────────────── */
+
+@keyframes breathingFrost {
+  0%, 100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+    box-shadow: 0 0 0 0 rgba(156, 201, 212, 0);
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 8px 2px rgba(156, 201, 212, 0.4);
+  }
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ─── Responsive ──────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .experience {
+    padding: 4.5rem 16px 6.5rem;
+  }
+
+  .timelineLayout {
+    grid-template-columns: 44px 1fr;
+    gap: 1.25rem;
+  }
+
+  .timelineLeft {
+    height: 520px;
+  }
+
+  .progressCounter {
+    display: none;
+  }
+
+  .timelineRight {
+    gap: 2.25rem;
+  }
+
+  .chapterMarker {
+    display: none;
+  }
+
+  .markerHoverPill {
+    display: none;
+  }
+}
+
+/* Mobile: Vertical spine beside cards with zero horizontal overflow */
+@media (max-width: 640px) {
+  .sectionHeader {
+    margin-bottom: 2.5rem;
+  }
+
+  .headerTopRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.1rem;
+  }
+
+  .careerCounterRow {
+    flex-wrap: wrap;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .timelineLayout {
+    grid-template-columns: 28px 1fr;
+    gap: 0.85rem;
+  }
+
+  .timelineLeft {
+    display: flex;
+    position: sticky;
+    top: 4.5rem;
+    height: 480px;
+  }
+
+  .svgTrackWrapper {
+    width: 28px;
+    height: 460px;
+  }
+
+  .timelineNode {
+    width: 22px;
+    height: 22px;
+  }
+
+  .markerBaseCircle {
+    width: 12px;
+    height: 12px;
+  }
+
+  .markerOuterRing {
+    width: 22px;
+    height: 22px;
+  }
+
+  .progressCounter {
+    display: none;
+  }
+
+  .chapterMarker {
+    display: none;
+  }
+
+  .markerHoverPill {
+    display: none;
+  }
+
+  .timelineRight {
+    gap: 2rem;
+  }
+
+  .inspectorModal {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .inspectorRole {
+    font-size: 1.25rem;
+  }
+
+  .sectionConnector {
+    padding: 0.5rem 0;
+  }
+
+  .connectorSublabel {
+    display: none;
+  }
+}

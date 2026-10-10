@@ -1,0 +1,379 @@
+/* ==========================================================================
+   Editorial Home Showcase Styles
+   Large project grid, subtle sage/peach accents, charcoal/cream CTA banner
+   ========================================================================== */
+
+.homePage {
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+}
+
+.sectionConnector {
+  width: 100%;
+  max-width: 1200px;
+  margin: -1.5rem auto;
+  padding: 0 24px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cardMediaWrap {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--surface-secondary);
+}
+
+/* ==========================================================================
+   Featured Section
+   ========================================================================== */
+.featuredSection {
+  padding: 4.5rem 32px 3rem 32px;
+  max-width: 1260px;
+  margin: 0 auto;
+  position: relative;
+  scroll-margin-top: 100px;
+}
+
+.sectionHeader {
+  margin-bottom: 2.25rem;
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.wordWrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.headingWord {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.sectionSubtitle {
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+/* Featured Projects Grid: Compact 3-Column Editorial Layout */
+.featuredGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin-bottom: 2.25rem;
+}
+
+.featuredCard {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.featuredCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-dark);
+}
+
+/* Project Subtle Accents */
+.cardSage {
+  border-top: 4px solid var(--accent-sage);
+}
+
+.cardPeach {
+  border-top: 4px solid var(--accent-peach);
+}
+
+.cardButter {
+  border-top: 4px solid var(--accent-butter);
+}
+
+.cardLavender {
+  border-top: 4px solid var(--accent-lavender);
+}
+
+/* Screenshot: Larger Visual Space */
+.cardImgWrap {
+  width: 100%;
+  height: 290px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--surface-secondary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.featuredCard:hover .cardImg {
+  transform: scale(1.03);
+}
+
+/* Live Badges */
+.liveTagSage {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(23, 23, 22, 0.88);
+  border: 1px solid rgba(174, 191, 167, 0.35);
+  color: #AEBFA7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.liveTagPeach {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(23, 23, 22, 0.88);
+  border: 1px solid rgba(231, 184, 168, 0.35);
+  color: #E7B8A8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.liveTagButter {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(23, 23, 22, 0.88);
+  border: 1px solid rgba(174, 191, 167, 0.35);
+  color: #AEBFA7;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* Card Body */
+.cardBody {
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.projectCategory {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0 0 0.85rem 0;
+}
+
+.cardText {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1.5rem 0;
+  flex-grow: 1;
+}
+
+/* Small Neutral Tags */
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 2rem;
+}
+
+.tag {
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+/* Card Action Button: Charcoal (Not Blue) */
+.cardActionRow {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cardBtnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  background-color: #F5F3EE;
+  color: #111110;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #F5F3EE;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.cardBtnPrimary:hover {
+  background-color: #AEBFA7;
+  border-color: #AEBFA7;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(174, 191, 167, 0.35);
+  color: #0B0B0A;
+}
+
+.cardBtnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: #F5F3EE;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+}
+
+.cardBtnSecondary:hover {
+  background-color: rgba(231, 184, 168, 0.08);
+  border-color: rgba(231, 184, 168, 0.45);
+  transform: translateY(-2px);
+  color: #E7B8A8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* View All Projects Wrapper */
+.viewAllWrap {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.viewAllBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #D7D4CC;
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.viewAllBtn:hover {
+  border-color: #AEBFA7;
+  background-color: rgba(174, 191, 167, 0.08);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  color: #AEBFA7;
+}
+
+/* ==========================================================================
+   Editorial Closing Banner (CTA Section)
+   Warm cream, large charcoal heading, subtle lavender/sage shapes
+   ========================================================================== */
+
+/* Responsive */
+@media (max-width: 1040px) {
+  .featuredGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuredSection {
+    padding: 3.5rem 16px 2.5rem 16px;
+  }
+
+  .featuredGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cardImgWrap {
+    height: 200px;
+  }
+
+  .cardBody {
+    padding: 1.25rem;
+  }
+}

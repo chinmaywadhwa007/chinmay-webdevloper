@@ -1,0 +1,17 @@
+/* ==========================================================================
+   SkillGrid Component Styles
+   ========================================================================== */
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

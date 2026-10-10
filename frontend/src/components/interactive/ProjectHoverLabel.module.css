@@ -1,0 +1,35 @@
+/* Small, Editorial Floating Project Label */
+.hoverLabel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background-color: #242321;
+  color: #FFFDF9;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(36, 35, 33, 0.28);
+  border: 1px solid rgba(255, 253, 249, 0.25);
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.7);
+  transform-origin: center center;
+  will-change: transform, opacity;
+}
+
+.arrowIcon {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.hoverLabel:hover .arrowIcon {
+  transform: translateX(2px);
+}

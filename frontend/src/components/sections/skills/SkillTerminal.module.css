@@ -1,0 +1,141 @@
+/* ==========================================================================
+   SkillTerminal Component Styles
+   Minimalist editorial code terminal with typing simulation
+   ========================================================================== */
+
+.terminalCard {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(36, 35, 33, 0.04);
+  margin-bottom: 2.5rem;
+}
+
+.terminalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background-color: var(--surface-secondary);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.windowDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dotClose { background-color: #E2877E; }
+.dotMin { background-color: #E8C170; }
+.dotMax { background-color: #92C59B; }
+
+.terminalTitle {
+  font-size: 0.76rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.commandButtons {
+  display: flex;
+  gap: 8px;
+}
+
+.cmdBtn {
+  background: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-family: monospace;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cmdBtn:hover {
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+
+.activeCmdBtn {
+  background-color: #242321;
+  color: #FFFDF9;
+  border-color: #242321;
+}
+
+.terminalBody {
+  padding: 1.75rem 2rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  background-color: #FAF8F4;
+  min-height: 220px;
+}
+
+.terminalCwd {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.promptLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.promptSymbol {
+  color: #2e4a33;
+  font-weight: 700;
+}
+
+.userPath {
+  color: #2e4a33;
+  font-weight: 700;
+}
+
+.commandText {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.cursorBlink {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  background-color: var(--text-primary);
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.outputBlock {
+  color: var(--text-secondary);
+  white-space: pre-wrap;
+}
+
+.checkMark {
+  color: var(--accent-green);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .terminalBody {
+    padding: 1.25rem;
+    font-size: 0.76rem;
+  }
+}

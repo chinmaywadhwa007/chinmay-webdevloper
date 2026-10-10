@@ -1,0 +1,173 @@
+/* ==========================================================================
+   SkillRelationshipGraph Component Styles
+   Interactive SVG network showing real-world architectural workflows
+   ========================================================================== */
+
+.graphCard {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(36, 35, 33, 0.04);
+  margin-bottom: 3.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tagline {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.graphContainer {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  user-select: none;
+}
+
+.svgCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.connectionLine {
+  stroke: var(--border-dark);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  fill: none;
+  opacity: 0.35;
+  transition: all 0.35s ease;
+}
+
+.lineActive {
+  stroke: #242321;
+  stroke-width: 2.5;
+  stroke-dasharray: none;
+  opacity: 1;
+}
+
+/* Typographic Nodes */
+.graphNodesWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.nodePill {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-primary);
+  border: 1.5px solid var(--border);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(36, 35, 33, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  z-index: 5;
+}
+
+.nodePill:hover,
+.nodeActive {
+  transform: translate(-50%, -50%) scale(1.08);
+  border-color: var(--text-primary);
+  box-shadow: 0 8px 20px rgba(36, 35, 33, 0.15);
+  background-color: #FFFDF9;
+}
+
+.nodeDimmed {
+  opacity: 0.35;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.dotSage {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-sage);
+}
+
+.dotLavender {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-lavender);
+}
+
+.dotPeach {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-peach);
+}
+
+.dotButter {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--accent-butter);
+}
+
+/* Callout Bar */
+.calloutBar {
+  margin-top: 1.25rem;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  background-color: #FAF8F4;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.calloutTag {
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: var(--accent-sage);
+}
+
+@media (max-width: 768px) {
+  .graphCard {
+    padding: 1.5rem;
+  }
+
+  .graphContainer {
+    height: 420px;
+  }
+}

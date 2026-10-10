@@ -1,0 +1,154 @@
+/* ==========================================================================
+   FloatingTerminal Component Styles
+   Open monospace typography layer, card-free
+   ========================================================================== */
+
+.terminalLayer {
+  margin: 3.5rem 0 1rem 0;
+  width: 100%;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #B8A9C9;
+}
+
+.commandPills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.cmdPill {
+  background: transparent;
+  border: 1px solid rgba(184, 169, 201, 0.16);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.74rem;
+  color: #A7A39B;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cmdPill:hover {
+  color: #D0C5DC;
+  border-color: #B8A9C9;
+  background-color: rgba(184, 169, 201, 0.08);
+}
+
+.cmdPillActive {
+  background-color: #B8A9C9;
+  color: #0B0C0C;
+  border-color: #B8A9C9;
+  font-weight: 700;
+}
+
+.monospaceCanvas {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.84rem;
+  line-height: 1.6;
+  color: #F3F0E8;
+  padding: 1rem 0;
+}
+
+.pathLine {
+  color: #A7A39B;
+  font-size: 0.78rem;
+  margin-bottom: 0.35rem;
+}
+
+.promptLine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.promptDollar {
+  color: #B8A9C9;
+  font-weight: 700;
+}
+
+.promptCommand {
+  font-weight: 600;
+}
+
+.cursorBlink {
+  display: inline-block;
+  width: 6px;
+  height: 14px;
+  background-color: #B8A9C9;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.outputColumns {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+}
+
+.outputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 140px;
+}
+
+.groupHeader {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  color: #DCCFB5;
+  border-bottom: 1px dashed rgba(184, 169, 201, 0.16);
+  padding-bottom: 4px;
+  margin-bottom: 4px;
+}
+
+.groupList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.groupItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #A7A39B;
+  font-size: 0.82rem;
+}
+
+.check {
+  color: #B8A9C9;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .outputColumns {
+    gap: 1.5rem;
+  }
+}

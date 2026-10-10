@@ -1,0 +1,178 @@
+.videoExperienceContainer {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background-color: #0E0E0D;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.playerWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.videoElement {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* Hide default Video.js big play button and control bar since we have our custom editorial overlay */
+:global(.vjs-big-play-button),
+:global(.vjs-control-bar),
+:global(.vjs-poster) {
+  display: none !important;
+}
+
+:global(.video-js) {
+  background-color: transparent !important;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(180deg, rgba(36, 35, 33, 0.4) 0%, transparent 40%, rgba(36, 35, 33, 0.6) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Top Equalizer */
+.equalizer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.nowPlayingText {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFDF9;
+  background: rgba(36, 35, 33, 0.75);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+}
+
+.barsGroup {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 16px;
+}
+
+.eqBar {
+  width: 3px;
+  height: 14px;
+  background-color: var(--accent-peach);
+  border-radius: 1px;
+  transform-origin: bottom center;
+  transform: scaleY(0.3);
+}
+
+/* Center Play Button Indicator */
+.playButtonIndicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(23, 23, 22, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  transition: transform 0.25s ease;
+}
+
+.videoExperienceContainer:hover .playButtonIndicator {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.playPulse {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1.5px solid var(--accent-peach);
+  opacity: 0.6;
+  animation: pulseRing 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.playIcon {
+  color: var(--text-primary);
+  margin-left: 2px;
+}
+
+/* Bottom Controls Bar */
+.controlsBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  background: rgba(36, 35, 33, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.iconBtn {
+  background: none;
+  border: none;
+  color: #FFFDF9;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.iconBtn:hover {
+  color: var(--accent-peach);
+  transform: scale(1.1);
+}
+
+.progressTrack {
+  width: 140px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: var(--accent-peach);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .videoExperienceContainer {
+    height: 220px;
+  }
+}

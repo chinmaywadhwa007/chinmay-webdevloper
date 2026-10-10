@@ -1,0 +1,85 @@
+/* ==========================================================================
+   EditorialCategoryNav Component Styles
+   Open editorial typography navigation with pastel underline
+   ========================================================================== */
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0 3.5rem 0;
+  width: 100%;
+}
+
+.navRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.navItem {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 6px 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: inherit;
+  user-select: none;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.itemLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #A7A39B; /* Inactive: warm gray */
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.navItem:hover .itemLabel {
+  color: #D0C5DC; /* Hover: light lavender */
+}
+
+.navItemActive .itemLabel {
+  color: #B8A9C9; /* Active: dusty lavender */
+  font-weight: 700;
+}
+
+.interpunct {
+  color: rgba(184, 169, 201, 0.3);
+  font-size: 1.1rem;
+  opacity: 0.45;
+  user-select: none;
+}
+
+.activeUnderline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #B8A9C9; /* Active underline: dusty lavender */
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .navRow {
+    gap: 0.75rem;
+  }
+
+  .itemLabel {
+    font-size: 0.74rem;
+    letter-spacing: 0.08em;
+  }
+
+  .interpunct {
+    display: none;
+  }
+}

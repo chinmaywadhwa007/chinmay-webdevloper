@@ -1,0 +1,576 @@
+/* ==========================================================================
+   BrandDesignLab — Interactive Identity & Color System Styles
+   ========================================================================== */
+
+.labContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+/* ─── Header & Concept Selectors ─── */
+
+.headerBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.eyebrowTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-lavender, #D7C8FF);
+  letter-spacing: 0.12em;
+}
+
+.mainTitle {
+  font-family: var(--font-sans);
+  font-size: 1.55rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #F3F0E8);
+  margin: 0;
+}
+
+.mainSubtitle {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-secondary, #B7B2A8);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* 3 Concept Cards */
+.conceptTabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.conceptCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: 14px;
+  background: var(--surface, #141615);
+  border: 1px solid var(--border-default, rgba(235, 231, 220, 0.12));
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.conceptCard:hover {
+  border-color: rgba(215, 200, 255, 0.35);
+  background: var(--surface-soft, #191B19);
+  transform: translateY(-2px);
+}
+
+.conceptCardActive {
+  background: rgba(215, 200, 255, 0.08) !important;
+  border-color: var(--accent-lavender, #D7C8FF) !important;
+  box-shadow: 0 0 20px rgba(215, 200, 255, 0.14),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.conceptMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.conceptNum {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted, #77736B);
+}
+
+.conceptRole {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-sage, #CDE8D5);
+}
+
+.conceptTitle {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--text-primary, #F3F0E8);
+  margin: 0;
+}
+
+.conceptTraits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.traitTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary, #B7B2A8);
+}
+
+/* ─── Main Stage Grid ─── */
+
+.stageGrid {
+  display: grid;
+  grid-template-columns: 1.45fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Canvas Area */
+.canvasArea {
+  display: flex;
+  flex-direction: column;
+  border-radius: 18px;
+  background: #0B0C10;
+  border: 1px solid var(--border-default, rgba(235, 231, 220, 0.12));
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.canvasToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(18, 19, 24, 0.6);
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.activeConceptLabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary, #F3F0E8);
+}
+
+.stateIndicatorPill {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(215, 200, 255, 0.12);
+  color: var(--accent-lavender, #D7C8FF);
+  border: 1px solid rgba(215, 200, 255, 0.25);
+}
+
+.themeToggleGroup {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.themeToggleBtn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  text-transform: capitalize;
+  padding: 0.22rem 0.6rem;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted, #77736B);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.themeToggleBtn:hover {
+  color: var(--text-primary, #F3F0E8);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.themeToggleActive {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: var(--text-primary, #F3F0E8) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Central Display Area */
+.stageDisplayArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 2rem 2.5rem;
+  position: relative;
+  min-height: 240px;
+}
+
+.ambientHaloBackdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(215, 200, 255, 0.12) 0%, rgba(255, 205, 178, 0.06) 50%, transparent 75%);
+  pointer-events: none;
+  filter: blur(28px);
+}
+
+.logoRenderer {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.conceptDescription {
+  position: relative;
+  z-index: 2;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-secondary, #B7B2A8);
+  text-align: center;
+  max-width: 480px;
+  margin: 0;
+}
+
+/* Interaction States Controller Bar */
+.statesBar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(14, 15, 18, 0.7);
+}
+
+.statesLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted, #77736B);
+}
+
+.stateBtnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.stateBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary, #B7B2A8);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.stateBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary, #F3F0E8);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.stateBtnActive {
+  background: rgba(215, 200, 255, 0.16) !important;
+  color: var(--text-primary, #F3F0E8) !important;
+  border-color: var(--accent-lavender, #D7C8FF) !important;
+  box-shadow: 0 0 12px rgba(215, 200, 255, 0.2);
+}
+
+/* Lockup Bar */
+.lockupBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(10, 11, 14, 0.85);
+}
+
+.lockupLabel {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--text-muted, #77736B);
+}
+
+.lockupGroup {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.lockupBtn {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary, #B7B2A8);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lockupBtn:hover {
+  color: var(--text-primary, #F3F0E8);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lockupBtnActive {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-primary, #F3F0E8) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* ─── Sidebar Area ─── */
+
+.sidebarArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.cardTitle {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--text-primary, #F3F0E8);
+  margin: 0;
+}
+
+.cardBadge {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted, #77736B);
+}
+
+/* Color System Card */
+.colorSystemCard {
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: var(--surface, #141615);
+  border: 1px solid var(--border-default, rgba(235, 231, 220, 0.12));
+}
+
+.colorList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.colorRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.colorRow:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateX(2px);
+}
+
+.colorPreview {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  position: relative;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.colorDotGlow {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+  filter: blur(6px);
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.colorInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  flex: 1;
+}
+
+.colorTop {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.colorName {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary, #F3F0E8);
+}
+
+.colorHex {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  color: var(--text-muted, #77736B);
+}
+
+.colorRole {
+  font-size: 0.7rem;
+  color: var(--text-secondary, #B7B2A8);
+}
+
+.copyBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted, #77736B);
+  cursor: pointer;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: color 0.2s ease;
+}
+
+.colorRow:hover .copyBtn {
+  color: var(--text-primary, #F3F0E8);
+}
+
+.checkIcon {
+  color: var(--accent-sage, #CDE8D5);
+}
+
+/* Navbar Usage Card */
+.navbarUsageCard {
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: var(--surface, #141615);
+  border: 1px solid var(--border-default, rgba(235, 231, 220, 0.12));
+}
+
+.mockupNavbarPill {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.4rem;
+  border-radius: 9999px;
+  background: rgba(18, 19, 24, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.mockupLogoWrap {
+  flex-shrink: 0;
+}
+
+.mockupNavLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.mockupLink {
+  font-size: 0.72rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  color: var(--text-muted, #77736B);
+}
+
+.mockupLinkActive {
+  color: #111111;
+  background: #F2F0E8;
+  font-weight: 600;
+}
+
+.mockupDotIndicator {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent-lavender, #D7C8FF);
+  margin-left: 0.2rem;
+}
+
+/* Favicon Variations Card */
+.faviconCard {
+  padding: 1.25rem;
+  border-radius: 18px;
+  background: var(--surface, #141615);
+  border: 1px solid var(--border-default, rgba(235, 231, 220, 0.12));
+}
+
+.faviconGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.faviconBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 0.5rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.favCaption {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.62rem;
+  color: var(--text-muted, #77736B);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .conceptTabs {
+    grid-template-columns: 1fr;
+  }
+
+  .stageGrid {
+    grid-template-columns: 1fr;
+  }
+}

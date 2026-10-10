@@ -1,0 +1,138 @@
+.constellationWrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: visible;
+}
+
+.svgCanvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connectionLine {
+  stroke-width: 1.2px;
+  opacity: 0.38;
+  stroke: rgba(255, 255, 255, 0.12);
+  transition: stroke-width 0.3s ease, opacity 0.3s ease, stroke 0.3s ease;
+}
+
+.lineClusterActive {
+  opacity: 0.8;
+  stroke-width: 1.6px;
+  stroke: #AEBFA7 !important;
+}
+
+.lineHighlight {
+  opacity: 1;
+  stroke-width: 2.2px;
+  stroke: #AEBFA7 !important;
+  stroke-dasharray: none !important;
+}
+
+/* Individual Node */
+.node {
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease;
+  user-select: none;
+}
+
+.nodePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s ease;
+}
+
+.nodeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #81796E;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nodeName {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #D7D4CC;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+/* Hover & Active Cluster */
+.nodeHovered {
+  transform: translate(-50%, -50%) scale(1.12);
+  z-index: 10;
+}
+
+.nodeHovered .nodePill {
+  background: #1A1A19;
+  border-color: #AEBFA7;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+.nodeHovered .nodeName {
+  color: #F5F3EE;
+}
+
+.nodeRelated .nodePill {
+  background: #171716;
+  border-color: #E7B8A8;
+}
+
+.nodeRelated .nodeName {
+  color: #F5F3EE;
+}
+
+/* Pastel Node Dot Accents */
+.accent_sage .nodeDot { background-color: #AEBFA7; }
+.accent_lavender .nodeDot { background-color: #C7BBD3; }
+.accent_peach .nodeDot { background-color: #E7B8A8; }
+.accent_butter .nodeDot { background-color: #AEBFA7; }
+
+/* Tooltip / Metadata Callout */
+.tooltip {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1F1F1E;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #F5F3EE;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 20;
+}
+
+.tooltipText {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive Hide on Small Devices */
+@media (max-width: 900px) {
+  .constellationWrapper {
+    display: none;
+  }
+}

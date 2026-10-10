@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Editorial Floating Navbar
+   Single shared pastel capsule travels between active tabs.
+   Warm ivory island, charcoal text, no hard colours.
+   ========================================================================== */
+
+/* ─── Outer wrapper (fixed, centered) ───────────────────────── */
+
+.navbarWrapper {
+  position: fixed;
+  top: 1.25rem;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  pointer-events: none;
+  padding: 0 1.25rem;
+  transition:
+    top 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.3s ease;
+}
+
+/* Scroll-shrunk state */
+.navbarScrolled {
+  top: 0.65rem;
+}
+
+/* Tucked while an architecture surface sits beneath the navbar */
+.navbarTucked {
+  transform: translateY(-140%);
+  opacity: 0;
+}
+
+.navbarTucked .navContainer {
+  pointer-events: none;
+}
+
+.navbarTucked:focus-within {
+  transform: none;
+  opacity: 1;
+}
+
+.navbarTucked:focus-within .navContainer {
+  pointer-events: auto;
+}
+
+.navbarScrolled .navContainer {
+  transform: scale(0.94);
+  background: rgba(14, 14, 13, 0.95);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow:
+    0 12px 32px -4px rgba(0, 0, 0, 0.65),
+    0 2px 8px -1px rgba(0, 0, 0, 0.4);
+}
+
+/* ─── Nav Container (pill island) ────────────────────────────── */
+
+.navContainer {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  min-height: 48px;
+  background: rgba(17, 17, 16, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 0.3rem 0.4rem 0.3rem 0.8rem;
+  box-shadow:
+    0 10px 30px -5px rgba(0, 0, 0, 0.5),
+    0 2px 6px  -1px rgba(0, 0, 0, 0.3);
+  transition:
+    transform          0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background         0.25s ease,
+    padding            0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow         0.3s ease;
+  max-width: fit-content;
+}
+
+/* ─── CW Brand Mark ─────────────────────────────────────────── */
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.logoLink:hover {
+  transform: scale(1.06);
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  margin-right: 0.3rem;
+  flex-shrink: 0;
+  transition:
+    transform      0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color   0.2s ease,
+    background     0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.logoText {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+}
+
+/* ─── Nav Links Container ────────────────────────────────────── */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+/* ─── Individual Nav Link ────────────────────────────────────── */
+
+.navLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.95rem;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+/* Inactive text colour */
+.navLink .navText {
+  font-size: 0.83rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+  transition: color 0.22s ease, transform 0.2s ease;
+}
+
+/* Hover — faint neutral wash */
+.navLink:not(.navLinkActive):hover .navText {
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.navLink:not(.navLinkActive):hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Active link — warm white text */
+.navLinkActive .navText {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ─── Active Underline ──────────────────────────── */
+
+.activeUnderline {
+  position: absolute;
+  bottom: 5px;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background-color: #EDEAE2;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* ─── Mobile Actions ─────────────────────────────────────────── */
+
+.mobileActions {
+  display: none;
+  align-items: center;
+  margin-left: 0.25rem;
+}
+
+.mobileToggle {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.45rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.mobileToggle:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* ─── Mobile Drawer ──────────────────────────────────── */
+
+.mobileDrawer {
+  position: fixed;
+  top: 4.4rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  background: rgba(17, 17, 16, 0.96);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  padding: 0.65rem;
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.7),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+.mobileList {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mobileItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.72rem 1.1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.mobileItem:hover {
+  color: var(--text-primary);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* Active mobile item */
+.mobileItem[style] {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mobileDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #EDEAE2;
+  flex-shrink: 0;
+}
+
+.mobileArrow {
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.mobileItem:hover .mobileArrow {
+  transform: translate(2px, -2px);
+  color: var(--text-primary);
+}
+
+/* ─── Responsive breakpoint ──────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .navLinks {
+    display: none;
+  }
+
+  .mobileActions {
+    display: flex;
+  }
+
+  .navContainer {
+    padding: 0.3rem 0.4rem 0.3rem 0.75rem;
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .navbarWrapper,
+  .navContainer,
+  .logo,
+  .navLink,
+  .navLink .navText {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,56 @@
+.card {
+  position: relative;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.6rem;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  border-color: var(--border-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.pastelAura {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(28px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.7);
+  z-index: 0;
+}
+
+.cardActive .pastelAura {
+  opacity: 0.85;
+  transform: scale(1.15);
+}
+
+.accent_sage .pastelAura { background-color: var(--accent-sage); }
+.accent_lavender .pastelAura { background-color: var(--accent-lavender); }
+.accent_peach .pastelAura { background-color: var(--accent-peach); }
+.accent_butter .pastelAura { background-color: var(--accent-butter); }
+
+/* Accent top border lines */
+.accent_sage { border-top: 3px solid var(--accent-sage); }
+.accent_lavender { border-top: 3px solid var(--accent-lavender); }
+.accent_peach { border-top: 3px solid var(--accent-peach); }
+.accent_butter { border-top: 3px solid var(--accent-butter); }
+
+.innerContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}

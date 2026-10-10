@@ -1,0 +1,199 @@
+/* ==========================================================================
+   SkillItem Component Styles
+   Warm ivory card, status badge, capabilities tags, and production proofs
+   ========================================================================== */
+
+.cardPerspectiveWrapper {
+  perspective: 1000px;
+  height: 100%;
+}
+
+.skillCard {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem 2.25rem;
+  box-shadow: 0 4px 20px rgba(36, 35, 33, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform, box-shadow, border-color;
+  transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.skillCard:hover {
+  border-color: var(--border-dark);
+  box-shadow: 0 14px 32px -6px rgba(36, 35, 33, 0.08), 0 4px 10px rgba(36, 35, 33, 0.02);
+}
+
+/* Subtle Top Accent Lines */
+.card_sage {
+  border-top: 4px solid var(--accent-sage);
+}
+
+.card_lavender {
+  border-top: 4px solid var(--accent-lavender);
+}
+
+.card_peach {
+  border-top: 4px solid var(--accent-peach);
+}
+
+.card_butter {
+  border-top: 4px solid var(--accent-butter);
+}
+
+/* Header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.skillName {
+  font-size: 1.28rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+  transition: transform 0.25s ease;
+}
+
+.skillCard:hover .skillName {
+  transform: translateY(-2px);
+}
+
+/* Status Badge */
+.statusBadge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.status_sage {
+  background-color: var(--accent-sage);
+  color: #2e4a33;
+  border-color: #CADBCB;
+}
+
+.status_lavender {
+  background-color: var(--accent-lavender);
+  color: #433363;
+  border-color: #D6CCE8;
+}
+
+.status_peach {
+  background-color: var(--accent-peach);
+  color: #693220;
+  border-color: #E8C8B8;
+}
+
+.status_butter {
+  background-color: var(--accent-butter);
+  color: #5c4308;
+  border-color: #E5D5A6;
+}
+
+.statusDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+/* Description */
+.skillDescription {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 1.25rem 0;
+}
+
+/* Capabilities Section */
+.capabilitiesSection {
+  margin-bottom: 1.5rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.6rem;
+}
+
+.capabilitiesWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.capabilityPill {
+  font-size: 0.76rem;
+  font-weight: 500;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.skillCard:hover .capabilityPill {
+  border-color: var(--border-dark);
+  color: var(--text-primary);
+}
+
+/* Proof Section */
+.proofSection {
+  margin-top: auto;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.proofList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.proofBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: #FAF8F4;
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.proofIcon {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 640px) {
+  .skillCard {
+    padding: 1.5rem;
+  }
+}

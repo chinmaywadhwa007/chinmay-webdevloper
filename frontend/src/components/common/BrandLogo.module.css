@@ -1,0 +1,237 @@
+/* ==========================================================================
+   BrandLogo — Official Chinmay Wadhwa Identity Component Styles
+   ========================================================================== */
+
+.logoRoot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  user-select: none;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease,
+              background 0.25s ease;
+}
+
+.isInteractive {
+  cursor: pointer;
+}
+
+.isInteractive:hover {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.isInteractive:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ── Container Theme Variations (from Brand Sheet Navbar Variations) ── */
+
+.theme_glass {
+  background: rgba(18, 19, 24, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.theme_glass:hover {
+  border-color: rgba(215, 200, 255, 0.32);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45),
+              0 0 14px rgba(215, 200, 255, 0.18),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.theme_dark {
+  background: #0B0C10;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.theme_dark:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+}
+
+.theme_circular {
+  background: #111217;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50% !important;
+  aspect-ratio: 1 / 1;
+}
+
+.theme_light {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.theme_light .brandTitle {
+  color: #111111;
+}
+
+.theme_light .brandSubtitle {
+  color: #555555;
+}
+
+/* ── Lockup Layout Modes ── */
+
+.lockup_mark {
+  border-radius: 9999px;
+  padding: 0.2rem 0.35rem;
+}
+
+.lockup_horizontal {
+  border-radius: 9999px;
+  padding: 0.32rem 0.85rem 0.32rem 0.5rem;
+  gap: 0.65rem;
+}
+
+.lockup_vertical {
+  flex-direction: column;
+  border-radius: 16px;
+  padding: 0.75rem 1rem;
+  gap: 0.45rem;
+  text-align: center;
+}
+
+/* ── SVG Mark Elements & Interactive Effects ── */
+
+.markContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.markSvg {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+  transition: filter 0.3s ease;
+}
+
+.isHovered .markSvg {
+  filter: drop-shadow(0 0 10px rgba(215, 200, 255, 0.45))
+          drop-shadow(0 0 18px rgba(255, 205, 178, 0.25));
+}
+
+.glowBackdrop {
+  transition: opacity 0.35s ease;
+}
+
+.signatureRibbon {
+  transition: stroke 0.3s ease;
+}
+
+/* Node orb hover & pulse */
+.nodeHalo {
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  transform-origin: 136px 17px;
+}
+
+.nodeHovered .nodeHalo {
+  transform: scale(1.4);
+  opacity: 0.95;
+}
+
+.nodeHovered .nodeCore {
+  filter: drop-shadow(0 0 6px #FFE6BF);
+}
+
+.nodeTriggered .nodeHalo {
+  animation: nodeRipple 0.7s ease-out;
+}
+
+@keyframes nodeRipple {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(2.2); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* Traveling pulse dot on click */
+.travelingParticle {
+  filter: drop-shadow(0 0 8px #FFFFFF)
+          drop-shadow(0 0 14px #FFE6BF);
+}
+
+/* Loading state: Stroke draw-in */
+.lineDrawIn {
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  animation: strokeDraw 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite alternate;
+}
+
+@keyframes strokeDraw {
+  0% { stroke-dashoffset: 260; }
+  100% { stroke-dashoffset: 0; }
+}
+
+.loadingOrbitalRing {
+  transform-origin: 78px 38px;
+  animation: spinOrbit 3s linear infinite;
+}
+
+@keyframes spinOrbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Coded mark bracket expansions on click */
+.bracketExpandLeft {
+  transform: translateX(-4px);
+  transition: transform 0.3s ease;
+}
+
+.bracketExpandRight {
+  transform: translateX(4px);
+  transition: transform 0.3s ease;
+}
+
+.dotPulsing {
+  animation: dotBlink 1.2s infinite ease-in-out;
+}
+
+@keyframes dotBlink {
+  0%, 100% { transform: scale(1); transform-origin: 58px 40px; opacity: 1; }
+  50% { transform: scale(1.35); transform-origin: 58px 40px; opacity: 0.7; }
+}
+
+/* ── Typography Lockup Text ── */
+
+.brandLockupText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.textVertical {
+  align-items: center;
+  text-align: center;
+}
+
+.brandTitle {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--text-primary, #F3F0E8);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+.brandSubtitle {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  color: var(--text-secondary, #B7B2A8);
+  white-space: nowrap;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+  opacity: 0.85;
+}

@@ -1,0 +1,616 @@
+/* ==========================================================================
+   TechWorldMap Component Styles
+   Interactive technical world map — warm ivory editorial aesthetic
+   ========================================================================== */
+
+.worldMapWrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ─── Mode Row ────────────────────────────────────────────────────────────── */
+.modeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.modeTabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background-color: #101111;
+  border: 1px solid rgba(184, 169, 201, 0.12);
+  border-radius: 8px;
+  padding: 3px;
+}
+
+.modeBtn {
+  padding: 5px 14px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #A7A39B;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.modeBtn:hover {
+  color: #D0C5DC;
+  background-color: rgba(184, 169, 201, 0.08);
+}
+
+.modeBtnActive {
+  background-color: #B8A9C9;
+  color: #0B0C0C;
+  box-shadow: 0 1px 6px rgba(184, 169, 201, 0.25);
+}
+
+.traceBtn {
+  padding: 6px 18px;
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #0B0C0C;
+  border: 1px solid rgba(208, 197, 220, 0.65);
+  border-radius: 8px;
+  background: linear-gradient(110deg, #B8A9C9 0%, #D0C5DC 50%, #B8A9C9 100%);
+  box-shadow: 0 0 16px rgba(184, 169, 201, 0.40), 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.traceBtn:hover:not(:disabled) {
+  background: linear-gradient(110deg, #D0C5DC 0%, #FAF8F5 50%, #D0C5DC 100%);
+  border-color: #FFFFFF;
+  color: #0B0C0C;
+  box-shadow: 0 0 24px rgba(184, 169, 201, 0.65), 0 4px 12px rgba(0, 0, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.traceBtnActive {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ─── Canvas ──────────────────────────────────────────────────────────────── */
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  border: 1px solid rgba(184, 169, 201, 0.10);
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #101111;
+  user-select: none;
+}
+
+/* ─── Map Background (parallax layer 1) ─────────────────────────────────── */
+.mapBackground {
+  position: absolute;
+  inset: -8px;  /* slight bleed for parallax room */
+  will-change: transform;
+  opacity: 0;  /* starts hidden, GSAP fades in */
+}
+
+.worldSvg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Region Labels ───────────────────────────────────────────────────────── */
+.regionLabel {
+  position: absolute;
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #A7A39B;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0.55;
+  transform: translate(-50%, 0);
+}
+
+/* ─── Route SVG ───────────────────────────────────────────────────────────── */
+.routeSvg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.routePath {
+  transition: stroke-opacity 0.42s ease, stroke 0.42s ease, stroke-width 0.35s ease;
+}
+
+/* ─── Nodes Layer (parallax layer 2) ─────────────────────────────────────── */
+.nodesLayer {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+  pointer-events: none;  /* individual nodes re-enable */
+}
+
+/* ─── Tech Map Node ───────────────────────────────────────────────────────── */
+.mapNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px 4px 8px;
+  background-color: #141515;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(184, 169, 201, 0.16);
+  border-radius: 9999px;
+  cursor: pointer;
+  pointer-events: auto;
+  white-space: nowrap;
+  z-index: 5;
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.mapNode:hover,
+.nodeHovered {
+  background-color: #1D1826;
+  border-color: #B8A9C9;
+  box-shadow: 0 0 16px rgba(184, 169, 201, 0.22), 0 6px 16px rgba(0, 0, 0, 0.6);
+  z-index: 15;
+}
+
+.nodePinned {
+  background-color: #241E30;
+  border-color: #D0C5DC;
+  box-shadow: 0 0 20px rgba(208, 197, 220, 0.25), 0 6px 20px rgba(0, 0, 0, 0.6);
+  z-index: 20;
+}
+
+.nodeRelated {
+  background-color: #181420;
+  border-color: #51465F;
+  box-shadow: 0 2px 10px rgba(81, 70, 95, 0.35);
+  z-index: 8;
+}
+
+.nodeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.nodeHovered .nodeDot,
+.nodePinned .nodeDot {
+  transform: scale(1.5);
+}
+
+.nodeLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #F3F0E8;
+  line-height: 1;
+}
+
+/* ─── Hover Tooltip ───────────────────────────────────────────────────────── */
+.hoverTooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 210px;
+  background-color: #101111;
+  border: 1px solid rgba(184, 169, 201, 0.20);
+  border-radius: 8px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  pointer-events: none;
+  text-align: left;
+}
+
+.tooltipName {
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #F3F0E8;
+  margin-bottom: 3px;
+}
+
+.tooltipRole {
+  font-size: 0.72rem;
+  color: #A7A39B;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.tooltipCaps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.tooltipCap {
+  font-size: 0.60rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+.tooltipUsed {
+  font-size: 0.67rem;
+  color: #A7A39B;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  border-top: 1px dashed rgba(184, 169, 201, 0.12);
+  padding-top: 5px;
+}
+
+.tooltipUsedLabel {
+  font-weight: 700;
+  color: #DCCFB5; /* Warm Cream for tiny metadata highlight */
+}
+
+/* ─── Pinned Profile Panel ────────────────────────────────────────────────── */
+.pinnedProfile {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 268px;
+  background-color: #101111;
+  border: 1px solid rgba(184, 169, 201, 0.22);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+  z-index: 50;
+}
+
+.pinnedHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.pinnedDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pinnedName {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #F3F0E8;
+  letter-spacing: -0.01em;
+  flex: 1;
+}
+
+.pinnedCategory {
+  font-size: 0.6rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 9999px;
+  background-color: rgba(217, 168, 149, 0.12);
+  color: #D9A895; /* Soft peach accent */
+  border: 1px solid rgba(217, 168, 149, 0.28);
+}
+
+.pinnedClose {
+  font-size: 1rem;
+  color: #A7A39B;
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 4px;
+  transition: color 0.15s;
+}
+
+.pinnedClose:hover { color: #D0C5DC; }
+
+.pinnedRole {
+  font-size: 0.75rem;
+  color: #A7A39B;
+  margin-bottom: 9px;
+}
+
+.pinnedCapabilities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.pinnedCap {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.65rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+  transition: all 0.2s ease;
+}
+
+.pinnedCap:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(184, 169, 201, 0.2);
+}
+
+.capDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pinnedConnectedSection {
+  margin-bottom: 8px;
+}
+
+.pinnedConnectedLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #A7A39B;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.pinnedConnectedList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.pinnedConnectedPill {
+  font-size: 0.67rem;
+  padding: 2px 8px;
+  border: 1px solid rgba(184, 169, 201, 0.18);
+  background-color: #141515;
+  border-radius: 9999px;
+  cursor: pointer;
+  color: #F3F0E8;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.pinnedConnectedPill:hover {
+  background-color: #1D1826;
+  border-color: #B8A9C9;
+  color: #D0C5DC;
+}
+
+.pinnedUsedIn {
+  font-size: 0.69rem;
+  color: #A7A39B;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(184, 169, 201, 0.14);
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.pinnedUsedLabel {
+  font-weight: 700;
+  color: #DCCFB5; /* Warm Cream */
+}
+
+/* ─── Workflow Nodes ──────────────────────────────────────────────────────── */
+.workflowNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  background-color: #141515;
+  border: 1px solid rgba(184, 169, 201, 0.16);
+  border-radius: 9999px;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflowNodeActive {
+  border-color: var(--node-color, #D9A895);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  background-color: #1C1720;
+}
+
+.workflowNodeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.workflowNodeLabel {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #F3F0E8;
+}
+
+/* ─── Architecture Nodes ─────────────────────────────────────────────────── */
+.archNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  padding: 10px 16px;
+  background-color: #141515;
+  border: 1px solid rgba(184, 169, 201, 0.16);
+  border-radius: 10px;
+  pointer-events: none;
+  white-space: nowrap;
+  border-left: 3px solid var(--node-color, #B8A9C9);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+  min-width: 200px;
+}
+
+.archNodeHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.archNodeDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.archNodeTitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F3F0E8;
+}
+
+.archNodeSub {
+  font-size: 0.66rem;
+  color: #A7A39B;
+  padding-left: 15px;
+  line-height: 1.4;
+}
+
+/* ─── Bottom Row ──────────────────────────────────────────────────────────── */
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* ─── Legend ──────────────────────────────────────────────────────────────── */
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legendDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #A7A39B;
+}
+
+/* ─── Hint ────────────────────────────────────────────────────────────────── */
+.mapHint {
+  font-size: 0.73rem;
+  color: #A7A39B;
+  line-height: 1.5;
+  text-align: right;
+  max-width: 480px;
+}
+
+/* ─── Mobile ──────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .canvas {
+    height: 480px;
+  }
+
+  .pinnedProfile {
+    position: fixed;
+    top: auto;
+    bottom: 16px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+    z-index: 200;
+  }
+
+  .modeRow {
+    gap: 8px;
+  }
+
+  .modeTabs {
+    gap: 2px;
+  }
+
+  .modeBtn {
+    padding: 4px 10px;
+    font-size: 0.62rem;
+  }
+
+  .traceBtn {
+    font-size: 0.62rem;
+    padding: 4px 12px;
+  }
+
+  .regionLabel {
+    display: none;
+  }
+
+  .hoverTooltip {
+    display: none;
+  }
+
+  .mapHint {
+    text-align: left;
+    font-size: 0.68rem;
+  }
+
+  .nodeLabel {
+    font-size: 0.72rem;
+  }
+
+  .mapNode {
+    padding: 3px 8px 3px 6px;
+    gap: 5px;
+  }
+
+  .nodeDot {
+    width: 5px;
+    height: 5px;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .canvas {
+    height: 420px;
+  }
+}

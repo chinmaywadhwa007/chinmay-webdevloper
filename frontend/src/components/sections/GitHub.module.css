@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Editorial GitHub Section Styles
+   Warm cream cards, distinct pastel accents, charcoal action button
+   ========================================================================== */
+
+.github {
+  padding: 5rem 24px 6.5rem;
+  background-color: var(--bg-primary);
+  position: relative;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.sectionHeader {
+  margin-bottom: 3.5rem;
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+/* Stats Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.statCard {
+  background-color: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.statCard:hover {
+  background-color: var(--surface-soft);
+  transform: translateY(-2px);
+  border-color: var(--border-dark);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* One accent per card, low intensity — carried by the icon only */
+.card_sage,
+.card_lavender,
+.card_peach { border-top: 1px solid var(--border-light); }
+
+.iconWrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: var(--surface-soft);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+.icon_sage { background-color: rgba(174, 191, 167, 0.08); color: var(--accent-sage); border: 1px solid rgba(174, 191, 167, 0.2); }
+.icon_lavender { background-color: rgba(199, 187, 211, 0.08); color: var(--accent-lavender); border: 1px solid rgba(199, 187, 211, 0.2); }
+.icon_peach { background-color: rgba(231, 184, 168, 0.08); color: var(--accent-peach); border: 1px solid rgba(231, 184, 168, 0.2); }
+
+.statNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 0.35rem 0;
+}
+
+.statDesc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* CTA */
+.ctaWrapper {
+  text-align: center;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 30px;
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ctaButton svg {
+  transition: color 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover stays light — sage lives in the arrow */
+.ctaButton:hover {
+  background-color: var(--btn-primary-hover);
+  color: var(--btn-primary-text);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButton:hover svg {
+  color: var(--sage-deep);
+  transform: translate(2px, -2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .github {
+    padding: 3.5rem 16px 5rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

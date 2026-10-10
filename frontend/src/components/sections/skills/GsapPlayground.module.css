@@ -1,0 +1,379 @@
+/* ==========================================================================
+   GsapPlayground Component Styles
+   Warm ivory & cream tones, delicate pastel badges, modular stages
+   ========================================================================== */
+
+.gsapContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.suiteBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-butter);
+  color: #524219;
+}
+
+.activeExpTag {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Controls Ribbon */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.controlBtn {
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controlBtn:hover {
+  background-color: rgba(36, 35, 33, 0.04);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.activeBtn {
+  background-color: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+/* Stage Area */
+.stage {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.experimentPane {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* 1. SplitText */
+.splitWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  perspective: 800px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.splitChar {
+  transform-origin: 50% 100%;
+  will-change: transform, opacity;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(36, 35, 33, 0.04);
+}
+
+.actionBtn:hover {
+  background-color: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+/* 2. & 3. Vector Canvas */
+.svgCanvas {
+  width: 240px;
+  height: 140px;
+  margin-bottom: 1.25rem;
+}
+
+.drawPath {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.morphPath {
+  fill: var(--accent-sage);
+  stroke: var(--text-primary);
+  stroke-width: 2.5;
+  transition: d 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 4. Flip */
+.flipBox {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(36, 35, 33, 0.05);
+}
+
+.flipCompact {
+  width: 300px;
+}
+
+.flipExpanded {
+  width: 100%;
+  max-width: 520px;
+  background-color: #FAF8F4;
+  border-color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(36, 35, 33, 0.08);
+}
+
+.flipContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.flipContent strong {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.flipSub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.flipDetails {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-top: 0.75rem;
+}
+
+.flipIcon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+/* 5. ScrollTrigger Scrub */
+.scrollDemoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 540px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scrubGraphic {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  box-shadow: 0 4px 16px rgba(36, 35, 33, 0.06);
+}
+
+.scrubControls {
+  flex: 1;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scrubHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scrubLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.scrubVal {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: monospace;
+  color: var(--text-muted);
+}
+
+.scrubSlider {
+  width: 100%;
+  accent-color: var(--text-primary);
+  cursor: pointer;
+}
+
+.scrubMarkers {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* 6. Observer */
+.observerBox {
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--surface-primary);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.observerTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.observerCards {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 1.25rem 0;
+}
+
+.observerSlide {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.slideActive {
+  background-color: var(--accent-lavender);
+  color: #3b2d56;
+  border-color: rgba(36, 35, 33, 0.2);
+  transform: scale(1.08);
+}
+
+.observerTelemetry {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.telemetryVal {
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 7. MotionPath */
+.motionPathWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.svgPathCanvas {
+  width: 280px;
+  height: 140px;
+}
+
+.guideTrack {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 2;
+  stroke-dasharray: 4, 4;
+}
+
+.motionOrb {
+  fill: var(--accent-peach);
+  stroke: var(--text-primary);
+  stroke-width: 2;
+}
+
+.pathLabel {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+@media (max-width: 640px) {
+  .stage {
+    padding: 1.25rem;
+    min-height: 200px;
+  }
+
+  .scrollDemoWrapper {
+    gap: 1.25rem;
+  }
+}

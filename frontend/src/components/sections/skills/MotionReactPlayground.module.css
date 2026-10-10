@@ -1,0 +1,188 @@
+/* ==========================================================================
+   MotionReactPlayground Component Styles
+   Warm ivory, soft sage accents, spring physics arena
+   ========================================================================== */
+
+.motionReactContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.subHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.reactBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--accent-sage);
+  color: #244129;
+}
+
+.subDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.physicsControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggleBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.toggleBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.toggleActive {
+  background-color: var(--text-primary);
+  color: #fff;
+  border-color: var(--text-primary);
+}
+
+/* Arena */
+.arena {
+  background-color: var(--surface-secondary);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem 1.5rem;
+}
+
+.arenaCrosshair {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(36, 35, 33, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(36, 35, 33, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center center;
+  pointer-events: none;
+}
+
+/* The Interactive Card */
+.interactiveCard {
+  background-color: var(--surface-primary);
+  border: 1.5px solid var(--border-dark);
+  border-radius: var(--radius-md);
+  box-shadow: 0 6px 18px rgba(36, 35, 33, 0.07);
+  padding: 1.25rem 1.75rem;
+  cursor: grab;
+  user-select: none;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+}
+
+.interactiveCard:active {
+  cursor: grabbing;
+}
+
+.cardCompact {
+  width: 280px;
+}
+
+.cardExpanded {
+  width: 360px;
+  background-color: #FAF8F4;
+  border-color: var(--text-primary);
+}
+
+.dragHandle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.handleIcon {
+  color: var(--text-primary);
+}
+
+.handleText {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+}
+
+.hintText {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.expandedSpecs {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border-light);
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.specItem strong {
+  display: block;
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+.arenaFootnote {
+  position: absolute;
+  bottom: 8px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  font-family: monospace;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .cardCompact {
+    width: 240px;
+  }
+  .cardExpanded {
+    width: 280px;
+  }
+}

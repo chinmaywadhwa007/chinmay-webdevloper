@@ -1,0 +1,552 @@
+/* ==========================================================================
+   Capability Evolution — Interactive Progression Track
+   Editorial warm ivory, pastel accent system, motion-driven stage transitions
+   ========================================================================== */
+
+/* ─── Wrapper ────────────────────────────────────────────────── */
+
+.wrapper {
+  margin-bottom: 4.5rem;
+  padding: 1.75rem 2rem 1.5rem;
+  background-color: #151514;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wrapper:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* ─── Header ─────────────────────────────────────────────────── */
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #F5F3EE;
+}
+
+.eyebrowDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  transition: background-color 0.4s ease;
+}
+
+.tagline {
+  font-size: 0.8rem;
+  color: #77746D;
+  font-weight: 400;
+}
+
+/* ─── Stages Row ─────────────────────────────────────────────── */
+
+.stagesRow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  position: relative;
+}
+
+/* ─── Stage Card (button) ────────────────────────────────────── */
+
+.stageCard {
+  flex: 1;
+  position: relative;
+  background: #111110;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  padding: 1.2rem 1.3rem;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  will-change: transform;
+  min-width: 0;
+  overflow: visible;
+}
+
+.stageCard:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+/* Active state */
+.stageActive {
+  background: #151514;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 22px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* Past (completed) stage — slightly lighter */
+.stagePast {
+  opacity: 0.8;
+}
+
+/* ─── Accent edge bar (Framer layoutId) ──────────────────────── */
+
+.activeEdge {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* ─── Stage Number Row ───────────────────────────────────────── */
+
+.stageNumRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.55rem;
+}
+
+.stageNum {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #77746D;
+  letter-spacing: 0.04em;
+  transition: color 0.25s ease;
+  line-height: 1;
+}
+
+.stageNumDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pastCheck {
+  font-size: 0.7rem;
+  color: #F5F3EE;
+  font-weight: 700;
+}
+
+/* ─── Phase Info ─────────────────────────────────────────────── */
+
+.phaseInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 0.9rem;
+}
+
+.phaseLabel {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  transition: color 0.25s ease;
+}
+
+.phaseLabelActive {
+  color: var(--text-primary);
+}
+
+.phaseMeta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Divider ────────────────────────────────────────────────── */
+
+.divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.08);
+  margin-bottom: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+/* ─── Skills Flow (active stage) ─────────────────────────────── */
+
+.skillsFlow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.35rem;
+  position: relative;
+}
+
+/* Each pill is wrapped to support tooltip positioning */
+.skillPillWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 0.73rem;
+  color: #B8B5AE;
+  background: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-xs);
+  padding: 3px 8px;
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  white-space: nowrap;
+}
+
+.skillPillHovered {
+  color: #F5F3EE;
+  background: #191918;
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.skillDot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Micro tooltip */
+.skillTooltip {
+  position: absolute;
+  bottom: calc(100% + 7px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #F2F0E8;
+  color: #111110;
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  white-space: nowrap;
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  max-width: 200px;
+  white-space: normal;
+}
+
+.skillTooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #F2F0E8;
+}
+
+.tooltipLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  display: block;
+}
+
+.tooltipDesc {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  display: block;
+}
+
+/* ─── Inactive Count ─────────────────────────────────────────── */
+
+.inactiveCount {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding-top: 0.1rem;
+}
+
+.countDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.countText {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ─── Expanded Content ───────────────────────────────────────── */
+
+.expandedContent {
+  overflow: hidden;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-light);
+}
+
+/* Production Loop */
+.productionLoop {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.loopStep {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 0;
+  cursor: default;
+  transition: opacity 0.2s ease;
+  opacity: 0.5;
+}
+
+.loopStepActive {
+  opacity: 1;
+}
+
+.loopDot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--border-dark);
+  flex-shrink: 0;
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.loopStepActive .loopDot {
+  transform: scale(1.3);
+}
+
+.loopLabel {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-primary);
+  text-transform: uppercase;
+}
+
+.loopDesc {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+  font-style: italic;
+}
+
+.loopArrow {
+  font-size: 0.7rem;
+  color: var(--border-dark);
+  margin: 0 2px;
+}
+
+/* Stage flow (0 & 1) */
+.stageFlow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.flowStep {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.flowConnector {
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+/* ─── Animated Connector Between Stages ──────────────────────── */
+
+.connectorWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 56px;
+  gap: 4px;
+  position: relative;
+  top: 0;
+  padding-top: 1.4rem; /* align with card content vertically */
+}
+
+.connectorSvg {
+  width: 100%;
+  height: 8px;
+  overflow: visible;
+}
+
+.connectorHint {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+/* ─── Bottom Progress Bar ────────────────────────────────────── */
+
+.progressBar {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.progressTrack {
+  position: relative;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.10);
+  border-radius: 2px;
+  margin-bottom: 0.75rem;
+  overflow: visible;
+}
+
+.progressFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 2px;
+  min-width: 0;
+  background-color: #F5F3EE;
+  transition: background-color 0.4s ease;
+}
+
+.progressDotEl {
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #F5F3EE;
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  z-index: 2;
+}
+
+.progressLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.progressLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.25s ease;
+}
+
+.progressLabel:hover { color: var(--text-secondary); }
+.progressLabelActive { font-weight: 800; }
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+
+@media (max-width: 860px) {
+  .wrapper {
+    padding: 1.4rem 1.25rem;
+  }
+
+  .stagesRow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .connectorWrapper {
+    width: 100%;
+    flex-direction: row;
+    padding-top: 0;
+    height: 24px;
+  }
+
+  .connectorSvg {
+    width: 100%;
+    height: 4px;
+    transform: none;
+  }
+
+  .connectorHint {
+    display: none;
+  }
+
+  .productionLoop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.45rem;
+  }
+
+  .loopArrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 540px) {
+  .headerRow {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+}
+
+/* ─── Reduced Motion ─────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .stageCard,
+  .skillPill,
+  .progressFill,
+  .progressDotEl,
+  .activeEdge {
+    transition: none !important;
+  }
+
+  .skillPillHovered {
+    transform: none;
+  }
+}

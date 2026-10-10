@@ -1,0 +1,1143 @@
+/* ==========================================================================
+   Contact Section — START A TRANSMISSION Experience
+   Editorial Warm Ivory + Technical Mission Progression + GSAP / Motion
+   ========================================================================== */
+
+.contact {
+  padding: 6.5rem 24px 8rem;
+  background-color: var(--bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* ─── SECTION HEADER ──────────────────────────────────────── */
+
+.sectionHeader {
+  margin-bottom: 3.5rem;
+}
+
+.eyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0; /* GSAP entrance */
+}
+
+.eyebrowNum {
+  color: var(--accent-plum);
+  font-weight: 800;
+}
+
+/* ─── Availability Pill ────────────────────────────────────── */
+
+.availabilityPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #171716;
+  border-radius: var(--radius-pill);
+  cursor: default;
+  opacity: 0; /* GSAP entrance */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.availabilityPill:hover {
+  background-color: #191918;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.availDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+  animation: availPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes availPulse {
+  0%, 100% { opacity: 0.7; transform: scale(0.9); }
+  50%      { opacity: 1;   transform: scale(1.15); }
+}
+
+.availText {
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F5F3EE;
+}
+
+/* ─── Section Title (SplitText style) ─────────────────────── */
+
+.title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #F5F3EE;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.28em;
+  overflow: visible;
+}
+
+.titleWord {
+  display: inline-block;
+  opacity: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  will-change: transform, opacity, clip-path;
+}
+
+.subtitle {
+  font-size: clamp(0.98rem, 1.8vw, 1.1rem);
+  color: #B8B5AE;
+  max-width: 580px;
+  line-height: 1.65;
+  opacity: 0;
+}
+
+/* ─── TWO-COLUMN CONTENT GRID ─────────────────────────────── */
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ─── LEFT: CONTACT INFO ──────────────────────────────────── */
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.infoLeadTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #F5F3EE;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.infoLeadText {
+  font-size: 0.94rem;
+  color: #B8B5AE;
+  line-height: 1.65;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.05rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  background-color: #151514;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contactRow::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px;
+  background-color: #F5F3EE;
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactRow:hover {
+  background-color: #191918;
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateX(4px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.contactRow:hover::before { transform: scaleY(1); }
+
+.contactRow:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 2px;
+}
+
+.row_lavender::before  { background-color: #C7BBD3; }
+.row_sage::before      { background-color: #AEBFA7; }
+.row_peach::before     { background-color: #E7B8A8; }
+
+.row_lavender:hover  { background-color: #191918; }
+.row_sage:hover      { background-color: #191918; }
+.row_peach:hover     { background-color: #191918; }
+
+.rowIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #F5F3EE;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contactRow:hover .rowIcon {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.icon_lavender { background-color: #171716; color: #C7BBD3; border-color: rgba(199, 187, 211, 0.3); }
+.icon_sage     { background-color: #171716; color: #AEBFA7; border-color: rgba(174, 191, 167, 0.3); }
+.icon_peach    { background-color: #171716; color: #E7B8A8; border-color: rgba(231, 184, 168, 0.3); }
+
+.locationPulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid #E5B7A5;
+  opacity: 0;
+  animation: locPulse 2.8s infinite ease-out;
+}
+
+@keyframes locPulse {
+  0%, 100% { transform: scale(1); opacity: 0; }
+  40%     { opacity: 0.4; }
+  70%     { transform: scale(1.4); opacity: 0; }
+}
+
+.rowContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.rowLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.rowValue {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease;
+}
+
+.rowArrow {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  transition: transform 0.2s ease, color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.contactRow:hover .rowArrow {
+  transform: translate(2px, -2px);
+  color: var(--text-primary);
+}
+
+/* ─── RIGHT: TRANSMISSION EXPERIENCE CARD ─────────────────── */
+
+.formWrapper {
+  position: relative;
+}
+
+/* Main Terminal Card Container */
+.transmissionCard {
+  background-color: #151514;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2.5rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+  position: relative;
+  z-index: 1;
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.transmissionCard:hover {
+  background-color: #151514;
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Header: Mission Intro & Live Telemetry */
+.terminalHeader {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 1.5rem;
+}
+
+.telemetryBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.systemStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #B8B5AE;
+  background-color: #171716;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.statusBlinkDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #F5F3EE;
+  animation: sysPulse 2s infinite ease-in-out;
+}
+
+@keyframes sysPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.85); }
+}
+
+.systemOnlineText {
+  letter-spacing: 0.14em;
+}
+
+.liveMissionStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.missionStatusLabel {
+  color: #77746D;
+}
+
+.missionStatusVal {
+  color: #F5F3EE;
+  background-color: #171716;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 2px 6px;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+.missionTitleBlock {
+  margin-bottom: 1.25rem;
+}
+
+.missionTitle {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F5F3EE;
+  margin-bottom: 0.35rem;
+}
+
+.missionSubtext {
+  font-size: 0.92rem;
+  color: #A8A59E;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Stage Progression Telemetry Row */
+.stageProgressionRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.10);
+}
+
+.stagePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #77746D;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagePillActive {
+  border-color: rgba(255, 255, 255, 0.35);
+  background-color: #191918;
+  color: #F5F3EE;
+}
+
+.stagePillComplete {
+  border-color: rgba(255, 255, 255, 0.25);
+  background-color: #171716;
+  color: #F5F3EE;
+}
+
+.stageNum {
+  font-weight: 800;
+}
+
+.stageDot {
+  font-size: 0.62rem;
+}
+
+.stageConnectorLine {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.15) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+/* ─── FORM LAYOUT & CONNECTING SVG ROUTE ───────────────────── */
+
+.formLayout {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+  position: relative;
+}
+
+/* Connecting Route Column (Requirement 9) */
+.routeColumn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0 2.5rem 0;
+}
+
+.routeSvg {
+  position: absolute;
+  top: 12px;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: calc(100% - 36px);
+  overflow: visible;
+  pointer-events: none;
+}
+
+.routeTrack {
+  stroke: rgba(222, 217, 207, 0.8);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+}
+
+.routeFill {
+  stroke-width: 2;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.16, 1, 0.3, 1), stroke 0.3s ease;
+}
+
+.routeNode {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--surface-primary);
+  border: 1.5px solid var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.routeNodeActive {
+  border-color: #B9AED6;
+  box-shadow: 0 0 8px rgba(185, 174, 214, 0.5);
+  transform: scale(1.15);
+}
+
+.routeNodeComplete {
+  border-color: #A8BFAE;
+  background-color: #DCE8DD;
+}
+
+.routeNodeDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+  transition: background-color 0.25s ease;
+}
+
+.routeNodeComplete .routeNodeDot {
+  background-color: #4D6E52;
+}
+
+/* Fields Container */
+.fieldsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ─── EDITORIAL UNDERLINE FIELD DESIGN (Requirement 24) ───── */
+
+.fieldGroup {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.fieldLabel {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.fieldStagePrefix {
+  color: var(--text-muted);
+  font-size: 0.68rem;
+}
+
+.fieldStateIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  transition: all 0.25s ease;
+}
+
+.fieldStateIndicator_sage     { color: #AEBFA7; }
+.fieldStateIndicator_lavender { color: #C7BBD3; }
+.fieldStateIndicator_peach    { color: #E7B8A8; }
+
+/* SVG Animated Checkmark Path (Requirement 7) */
+.stageCheckmarkSvg {
+  overflow: visible;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.checkmarkPath {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.checkmarkPathDrawn {
+  stroke-dashoffset: 0;
+}
+
+/* Input Underline Wrapper */
+.inputUnderlineWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #111110;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: #F5F3EE;
+  outline: none;
+  line-height: 1.6;
+  transition: border-color 0.22s ease, background-color 0.22s ease;
+  display: block;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #AEBFA7;
+  outline: none;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: #66635D;
+  font-size: 0.92rem;
+  font-weight: 400;
+}
+
+.textarea {
+  resize: none;
+  min-height: 105px;
+}
+
+/* Dynamic Focus Underline Bar */
+.focusBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  border-radius: 2px;
+  background-color: #AEBFA7;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  pointer-events: none;
+}
+
+/* Field States */
+.fieldFocused .focusBar {
+  width: 100%;
+}
+
+.fieldSage.fieldFocused .focusBar {
+  background-color: #AEBFA7;
+}
+
+.fieldSage.fieldValid .input {
+  border-color: #AEBFA7;
+}
+
+.fieldLavender.fieldFocused .focusBar {
+  background-color: #AEBFA7;
+}
+
+.fieldLavender.fieldValid .input {
+  border-color: #C7BBD3;
+}
+
+.fieldPeach.fieldFocused .focusBar {
+  background-color: #AEBFA7;
+}
+
+.fieldPeach.fieldValid .textarea {
+  border-color: #E7B8A8;
+}
+
+/* Error Highlight (Soft peach, non-aggressive) */
+.fieldError .input,
+.fieldError .textarea {
+  border-color: #E7B8A8;
+}
+
+.fieldError .focusBar {
+  width: 100%;
+  background-color: #E7B8A8;
+}
+
+.fieldErrorMsg {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #E7B8A8;
+}
+
+/* Message Footer & Smooth Counter */
+.messageFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+
+.signalTag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #77746D;
+}
+
+.charCounter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #77746D;
+  letter-spacing: 0.04em;
+  transition: color 0.2s ease;
+}
+
+.charCounterWarn {
+  color: #F5F3EE;
+  font-weight: 700;
+}
+
+/* ─── SUBMIT AREA & MAGNETIC BUTTON ───────────────────────── */
+
+.submitArea {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.magneticBtnWrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.submitBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 30px;
+  background-color: #F5F3EE;
+  color: #0B0B0A;
+  border: 1px solid #F5F3EE;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-color: #AEBFA7;
+  border-color: #AEBFA7;
+  color: #0B0B0A;
+  box-shadow: 0 8px 24px rgba(174, 191, 167, 0.35);
+}
+
+.submitBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+}
+
+.submitBtnLabel {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 0.15s ease;
+}
+
+.planeIconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  will-change: transform;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.planeIcon {
+  display: block;
+}
+
+.readyHint {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #AEBFA7;
+  background-color: #171716;
+  border: 1px solid rgba(174, 191, 167, 0.35);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+.readyHintIcon {
+  color: #AEBFA7;
+}
+
+/* ─── FLIGHT ANIMATION (Requirement 13) ───────────────────── */
+
+.flightActivePlane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--text-primary);
+  pointer-events: none;
+  z-index: 20;
+  will-change: transform, opacity;
+}
+
+/* ─── MORPHING SUCCESS STATE (Requirement 14, 15) ─────────── */
+
+.successState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem 3rem;
+  position: relative;
+  min-height: 380px;
+}
+
+/* Success Celebration Particles */
+.particlesRing {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.particle_sage     { background-color: #AEBFA7; }
+.particle_lavender { background-color: #C7BBD3; }
+.particle_peach    { background-color: #E7B8A8; }
+.particle_butter   { background-color: #AEBFA7; }
+
+.particleLine {
+  position: absolute;
+  width: 12px;
+  height: 1.5px;
+  border-radius: 2px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+/* Animated Checkmark in Success State */
+.successCheckWrapper {
+  margin-bottom: 1.25rem;
+  color: #3b5740;
+}
+
+.successCheckSvg {
+  display: block;
+}
+
+.successCheckCircle {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+.successCheckTick {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+}
+
+.successTitle {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+
+.successBody {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 380px;
+  margin-bottom: 1.25rem;
+}
+
+.statusDeliveredBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #AEBFA7;
+  background-color: rgba(174, 191, 167, 0.15);
+  border: 1px solid rgba(174, 191, 167, 0.4);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 2rem;
+}
+
+.statusDeliveredDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+}
+
+/* Reset Button */
+.resetBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #F5F3EE;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.resetBtn:hover {
+  background-color: rgba(231, 184, 168, 0.12);
+  border-color: #E7B8A8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.resetBtnArrow {
+  font-size: 0.95rem;
+  transition: transform 0.2s ease;
+}
+
+.resetBtn:hover .resetBtnArrow {
+  transform: translate(2px, -2px);
+}
+
+/* ─── ERROR STATE (Requirement 22) ────────────────────────── */
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  min-height: 320px;
+}
+
+.errorBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #E7B8A8;
+  background-color: rgba(231, 184, 168, 0.15);
+  border: 1px solid rgba(231, 184, 168, 0.4);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+}
+
+.errorHeading {
+  font-family: var(--font-mono);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E7B8A8;
+  margin-bottom: 0.5rem;
+}
+
+.errorBody {
+  font-size: 0.94rem;
+  color: #B8B5AE;
+  line-height: 1.6;
+  max-width: 360px;
+  margin-bottom: 1.5rem;
+}
+
+.retryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid #E7B8A8;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #C97A63;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retryBtn:hover {
+  background-color: rgba(243, 221, 210, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ─── RESPONSIVE STYLES (Requirement 30) ──────────────────── */
+
+@media (max-width: 960px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .transmissionCard {
+    padding: 2rem 1.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contact {
+    padding: 4.5rem 16px 6rem;
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+
+  .transmissionCard {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .formLayout {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .routeColumn {
+    display: none;
+  }
+
+  .submitBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .submitArea {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ─── REDUCED MOTION (Requirement 29) ─────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .titleWord,
+  .eyebrow,
+  .subtitle,
+  .availabilityPill {
+    opacity: 1 !important;
+    clip-path: none !important;
+    transform: none !important;
+  }
+
+  .availDot,
+  .statusBlinkDot,
+  .locationPulse {
+    animation: none !important;
+  }
+
+  .checkmarkPath {
+    transition: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  .submitBtn,
+  .contactRow,
+  .transmissionCard,
+  .planeIconWrapper {
+    transition: none !important;
+    transform: none !important;
+  }
+}

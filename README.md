@@ -48,30 +48,41 @@ A stunning, production-ready portfolio website built with React, Vite, Framer Mo
 - **Theme Management**: Context API
 - **Package Manager**: pnpm
 
-## Project Structure
+## Project Structure (Full-Stack Architecture)
 
 ```
-src/
-├── components/
-│   ├── common/              # Reusable components
-│   │   ├── Navbar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── ScrollProgress.jsx
-│   │   └── BackToTop.jsx
-│   └── sections/            # Portfolio sections
-│       ├── Hero.jsx
-│       ├── About.jsx
-│       ├── Skills.jsx
-│       ├── Experience.jsx
-│       ├── Projects.jsx
-│       ├── GitHub.jsx
-│       ├── Resume.jsx
-│       └── Contact.jsx
-├── context/
-│   └── ThemeContext.jsx     # Theme management
-├── App.jsx                  # Main app component
-├── main.jsx                 # Entry point
-└── index.css               # Global styles
+portfolio/
+├── backend/                       # Backend API & Database (Node.js, Express, PostgreSQL)
+│   ├── config/
+│   │   └── db.js                 # PostgreSQL Pool & DB connection
+│   ├── controllers/
+│   │   └── contactController.js  # Contact message processing & database storage
+│   ├── models/
+│   │   └── ContactMessage.sql    # PostgreSQL / pgAdmin 14 schema
+│   ├── routes/
+│   │   ├── contactRoutes.js      # /api/contact endpoints
+│   │   └── healthRoutes.js       # /api/health check
+│   ├── server.js                 # Express server entry point
+│   ├── package.json              # Backend dependencies
+│   └── .env.example              # PostgreSQL & server credentials
+│
+├── frontend/                      # Frontend Application (React 19 + Vite 8)
+│   ├── public/                   # Static project screenshots & assets
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── common/           # Reusable UI components (Navbar, Footer, etc.)
+│   │   │   └── sections/         # Hero, About, Skills, Projects, Contact, etc.
+│   │   ├── context/              # ThemeContext (Dark/Light mode)
+│   │   ├── services/             # API client services (REST calls to backend)
+│   │   ├── App.jsx               # Main React component
+│   │   ├── index.css             # Design tokens, variables & typography
+│   │   └── main.jsx              # Vite entry mount
+│   ├── index.html                # Single-page HTML entry point
+│   └── package.json              # Frontend scripts
+│
+├── vite.config.mjs               # Vite root configuration (configured to ./frontend)
+├── package.json                  # Root orchestration scripts (dev, build, server)
+└── README.md
 ```
 
 ## Installation

@@ -1,0 +1,729 @@
+/* ==========================================================================
+   InteractiveModeLab Component Styles
+   Open canvas, card-free living architectural workflows
+   ========================================================================== */
+
+.livingFlowsContainer {
+  margin: 2rem 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   Workflow Navigation (Compact Editorial Typography)
+   ========================================================================== */
+.workflowNav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+  padding-bottom: 8px;
+}
+
+.navLinksRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: nowrap;
+}
+
+.navBtn {
+  position: relative;
+  background: transparent;
+  border: none;
+  padding: 6px 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: inherit;
+  user-select: none;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.navLabel {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.navBtn:hover .navLabel {
+  color: var(--text-primary);
+}
+
+.navBtnActive .navLabel {
+  color: var(--text-primary);
+}
+
+.navInterpunct {
+  color: var(--border-dark);
+  font-size: 0.95rem;
+  opacity: 0.35;
+  user-select: none;
+}
+
+.activeUnderline {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Workflow Canvas & Panes
+   ========================================================================== */
+.flowStageCanvas {
+  position: relative;
+  width: 100%;
+}
+
+.flowPane {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.paneHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 780px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.headline {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.description {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 4px 0 0 0;
+}
+
+.actionPillGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.codePill {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.76rem;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-primary);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--text-secondary);
+}
+
+.triggerBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F3F0E8;
+  color: #111111;
+  border: 1px solid rgba(243, 240, 232, 0.5);
+  border-radius: var(--radius-pill);
+  padding: 6px 16px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.triggerBtn:hover:not(:disabled) {
+  background-color: #E8E5DC; /* slightly darker/warmer surface */
+  color: #111111;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.triggerBtn svg {
+  color: #B8A9C9; /* arrow / icon: dusty lavender */
+  transition: transform 0.2s ease;
+}
+
+.triggerBtn:hover:not(:disabled) svg {
+  transform: translateX(1px);
+}
+
+.triggerBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Horizontal Pipeline Strip
+   ========================================================================== */
+.pipelineStrip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 0 1.25rem 0;
+  overflow-x: auto;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.nodeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.layerBadge {
+  font-size: 0.68rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-muted);
+  white-space: nowrap;
+  opacity: 0.75;
+}
+
+.signalDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.nodeName {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.nodeColActive .nodeName {
+  color: var(--text-primary);
+}
+
+.trackLine {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.10);
+  min-width: 20px;
+  position: relative;
+  margin: 0 8px;
+  margin-top: 10px;
+}
+
+.trackFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: width 0.2s linear;
+}
+
+/* ==========================================================================
+   Live Outcome Area
+   ========================================================================== */
+.liveOutcomeArea {
+  padding: 0.5rem 0;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+/* 1. Interaction */
+.reactiveObject {
+  padding: 10px 20px;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.reactiveLabel {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.reactiveTelemetry {
+  font-size: 0.74rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-secondary);
+}
+
+/* 2. API Response */
+.resultStrip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  background-color: var(--surface-primary);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  flex-wrap: wrap;
+}
+
+.okBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  color: #F5F3EE;
+}
+
+.latencyNote {
+  color: var(--text-muted);
+}
+
+.dividerDot {
+  color: var(--border-dark);
+  opacity: 0.4;
+}
+
+.recordsText {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-secondary);
+}
+
+/* 3. Auth Status */
+.authStatusBadge {
+  display: inline-flex;
+  align-items: center;
+}
+
+.authGranted {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #F5F3EE;
+}
+
+.authPending {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+/* 4. Data Results */
+.dataResultsCard {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.resultMetaRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dataMeta {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #F5F3EE;
+}
+
+.dataMetaSub {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.projectChips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chipItem {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  background-color: var(--surface-primary);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  color: var(--text-primary);
+}
+
+/* 5. React Telemetry */
+.reactTelemetry {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.74rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.telemetryDivider {
+  color: var(--border-dark);
+  opacity: 0.4;
+}
+
+.telemetryHighlight {
+  color: #F5F3EE;
+  font-weight: 700;
+}
+
+/* 6. Motion Section Details */
+.engineBranchRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.branchBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.branchBtnActive {
+  background-color: var(--text-primary);
+  color: #F5F3EE;
+  border-color: var(--text-primary);
+}
+
+.motionControlsRibbon {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.motionCtrlBtn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-pill);
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.motionCtrlActive {
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.openMotionCanvas {
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.motionCenterBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.splitTypo {
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.splitChar {
+  transform-origin: 50% 100%;
+}
+
+.reActionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reActionBtn:hover {
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
+}
+
+.motionSvg {
+  width: 180px;
+  height: 110px;
+}
+
+.morphPath {
+  fill: var(--accent-lavender);
+  stroke: var(--text-primary);
+  stroke-width: 2;
+  transition: d 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.drawPath {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.flipCard {
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-primary);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.flipCard strong {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+}
+
+.flipSub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.flipCardExpanded {
+  border-radius: var(--radius-md);
+  padding: 14px 24px;
+  border-color: var(--text-primary);
+}
+
+.scrubDemoBox {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.scrubTarget {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.scrubSliderRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scrubTag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.scrubInput {
+  accent-color: var(--text-primary);
+  cursor: pointer;
+}
+
+.scrubPct {
+  font-family: monospace;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 7. Deploy Strip */
+.deployStatusStrip {
+  display: inline-flex;
+  align-items: center;
+}
+
+.livePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 0.74rem;
+  color: #F5F3EE;
+  font-weight: 600;
+}
+
+.greenPulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #F5F3EE;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.4; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.stagedPill {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* 8. Performance Compare Area */
+.perfCompareArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.perfPathBlock {
+  padding: 12px 18px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px dashed rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pathHeader {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #A8A59E;
+}
+
+.pathHeaderOpt {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #F5F3EE;
+}
+
+.optimizedBlock {
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.pathFlow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.bottleneckNode {
+  color: #F5F3EE;
+  font-weight: 700;
+}
+
+.optNode {
+  color: #F5F3EE;
+  font-weight: 700;
+}
+
+.perfTelemetryRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.perfTelemetryRow strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+  .workflowNav {
+    margin-bottom: 1.5rem;
+  }
+
+  .navLinksRow {
+    gap: 0.85rem;
+  }
+
+  .navLabel {
+    font-size: 0.7rem;
+  }
+
+  .pipelineStrip {
+    padding: 1.25rem 0;
+  }
+
+  .nodeName {
+    font-size: 0.68rem;
+  }
+}

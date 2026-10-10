@@ -1,0 +1,431 @@
+/* ==========================================================================
+   Signature Editorial Hero Styles
+   Kinetic Responsive Typography, Distance-based Physics, 95-100vh Canvas
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 110px 24px 70px;
+  background-color: var(--bg-primary);
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Background Interactive Geometry & SVG Curves */
+.bgGeometry {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.geomSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ambient Soft Radial Shapes (Neutralized Monochrome Foundation) */
+.ambientShapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.shapeLavender {
+  position: absolute;
+  top: 10%;
+  right: 14%;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(199, 187, 211, 0.16) 0%, transparent 70%);
+  filter: blur(55px);
+  opacity: 0.6;
+}
+
+.shapeSage {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(174, 191, 167, 0.14) 0%, transparent 70%);
+  filter: blur(65px);
+  opacity: 0.6;
+}
+
+.shapePeach {
+  position: absolute;
+  top: 42%;
+  left: 48%;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(231, 184, 168, 0.15) 0%, transparent 70%);
+  filter: blur(58px);
+  opacity: 0.55;
+}
+
+/* Constellation Container */
+.constellationContainer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main Container */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Availability Pill */
+.availabilityWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.availabilityBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 18px;
+  border-radius: var(--radius-pill);
+  background: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  font-size: 0.84rem;
+  font-weight: 500;
+  color: #B8B5AE;
+  letter-spacing: -0.01em;
+  cursor: default;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.availabilityBadge:hover {
+  border-color: #AEBFA7;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.statusDot {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 8px;
+  height: 8px;
+}
+
+.statusPulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+  opacity: 0.6;
+  animation: gentlePulse 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.statusSolid {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #AEBFA7;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.availabilityText {
+  color: #F5F3EE;
+  font-weight: 600;
+}
+
+.badgeSep {
+  color: rgba(255, 255, 255, 0.20);
+  font-size: 0.7rem;
+}
+
+.locationText {
+  color: #81796E;
+}
+
+/* ==========================================================================
+   Kinetic Responsive Typography System
+   Extremely large responsive headline: clamp(3.8rem, 13vw, 8.8rem)
+   ========================================================================== */
+.headlineWrapper {
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(3.8rem, 13vw, 8.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  color: #F5F3EE;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.headlineRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+/* Kinetic Letter Spans: physical objects with individual magnetic physics */
+.char {
+  display: inline-block;
+  will-change: transform, filter, opacity;
+  transform-origin: center center;
+  transition: color 0.2s ease;
+}
+
+.charBold {
+  font-weight: 800;
+  color: #F5F3EE;
+}
+
+.charLight {
+  font-weight: 400;
+  color: #F5F3EE;
+  opacity: 0.88;
+}
+
+/* Dynamic Specialty Subtitle */
+.subtitleBlock {
+  margin-bottom: 1.25rem;
+}
+
+.roleSubline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  color: #88847C;
+  letter-spacing: -0.01em;
+  min-height: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rolePrefix {
+  color: #81796E;
+  font-weight: 400;
+}
+
+.roleDynamic {
+  color: #F5F3EE;
+  font-weight: 700;
+  border-bottom: 2px solid #AEBFA7;
+  padding-bottom: 1px;
+}
+
+.typingCursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: #AEBFA7;
+  margin-left: 2px;
+  animation: cursorBlink 1s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Editorial Bio Description */
+.description {
+  max-width: 660px;
+  font-size: clamp(0.98rem, 1.8vw, 1.12rem);
+  line-height: 1.68;
+  color: #B8B5AE;
+  margin-bottom: 2.25rem;
+  font-weight: 400;
+}
+
+.highlightText {
+  color: #F5F3EE;
+  font-weight: 600;
+}
+
+/* Magnetic Button Action Group */
+.actionGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Primary Button: Crisp White with Black Text and Apricot Accent on Hover */
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: var(--radius-pill);
+  background-color: #F5F3EE;
+  color: #0B0B0A;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid #F5F3EE;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background-color: #AEBFA7;
+  border-color: #AEBFA7;
+  color: #0B0B0A;
+  box-shadow: 0 8px 24px rgba(174, 191, 167, 0.35);
+}
+
+/* Secondary Button: Transparent with Subtle White Border and Peach Hover */
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 30px;
+  border-radius: var(--radius-pill);
+  background-color: transparent;
+  color: #F5F3EE;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  border-color: #E7B8A8;
+  background-color: rgba(231, 184, 168, 0.12);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Editorial Scroll Indicator */
+.scrollIndicator {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3.5rem;
+  color: #81796E;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  padding: 8px 12px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.scrollIndicator:hover {
+  color: #F5F3EE;
+}
+
+.scrollTrack {
+  width: 1px;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.14);
+  position: relative;
+  overflow: hidden;
+  margin: 2px 0;
+}
+
+.scrollBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #AEBFA7;
+  transform: translateY(-100%);
+  animation: scrollDownFill 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes scrollDownFill {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0%); }
+  100% { transform: translateY(100%); }
+}
+
+.scrollArrow {
+  opacity: 0.7;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 16px 50px;
+    min-height: 90vh;
+  }
+
+  .headline {
+    font-size: clamp(3rem, 15vw, 4.8rem);
+    line-height: 0.98;
+  }
+
+  .availabilityBadge {
+    padding: 5px 14px;
+    font-size: 0.78rem;
+  }
+
+  .badgeSep,
+  .locationText {
+    display: none;
+  }
+
+  .actionGroup {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scrollIndicator {
+    margin-top: 2rem;
+  }
+}

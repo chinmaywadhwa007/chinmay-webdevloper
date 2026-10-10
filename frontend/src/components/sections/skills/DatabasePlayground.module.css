@@ -1,0 +1,349 @@
+/* ==========================================================================
+   DatabasePlayground Component Styles
+   Warm ivory & cream tones, editorial typography, schema cards
+   ========================================================================== */
+
+.dbPlaygroundCard {
+  background-color: #141413;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 3.5rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tagline {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #88847C;
+}
+
+.title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #F5F3EE;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.queryRunnerRow {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.schemaBox {
+  flex: 1;
+  min-width: 280px;
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+}
+
+.schemaHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.schemaTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #F5F3EE;
+  margin: 0;
+}
+
+.engineBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(184, 169, 201, 0.14);
+  color: #B8A9C9;
+  border: 1px solid rgba(184, 169, 201, 0.32);
+}
+
+.fieldList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.8rem;
+}
+
+.fieldItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+}
+
+.fieldItem:last-child {
+  border-bottom: none;
+}
+
+.fieldName {
+  color: #F5F3EE;
+  font-weight: 600;
+}
+
+.fieldType {
+  color: #88847C;
+  font-size: 0.74rem;
+}
+
+/* Query Box */
+.queryBox {
+  flex: 1.4;
+  min-width: 320px;
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.querySnippet {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.88rem;
+  color: #F5F3EE;
+  margin: 0 0 1.25rem 0;
+  line-height: 1.6;
+  background: #0B0B0A;
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Editorial Syntax Highlighting */
+.sqlSelect {
+  color: #D9A895; /* Soft Peach */
+  font-weight: 700;
+}
+
+.sqlFrom {
+  color: #B8A9C9; /* Dusty Lavender */
+  font-weight: 700;
+}
+
+.sqlWhere {
+  color: #D0C5DC; /* Light Lavender */
+  font-weight: 700;
+}
+
+.sqlTable {
+  color: #DCCFB5; /* Soft Cream */
+}
+
+.sqlVal {
+  color: #F5F3EE; /* Crisp Warm White */
+  font-weight: 600;
+}
+
+.actionsRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.executeBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background-color: #F3F0E8;
+  color: #111111;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid rgba(243, 240, 232, 0.5);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.executeBtn:hover:not(:disabled) {
+  background-color: #E8E5DC;
+  color: #111111;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.executeBtn svg {
+  color: #B8A9C9;
+}
+
+/* Query Execution Pipeline Animation */
+.flowStages {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #88847C;
+}
+
+.flowStage {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.2s ease;
+}
+
+.stageActive {
+  background-color: rgba(231, 184, 168, 0.20);
+  color: #E7B8A8;
+  border-color: #E7B8A8;
+  transform: scale(1.05);
+}
+
+.flowArrow {
+  color: #88847C;
+  font-weight: 800;
+}
+
+/* Results Section & Project Result Cards */
+.resultsContainer {
+  background-color: #171716;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.resultsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resultsMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background-color: rgba(184, 169, 201, 0.14);
+  color: #B8A9C9;
+  border: 1px solid rgba(184, 169, 201, 0.32);
+}
+
+.indexInfo {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.projectResultCard {
+  background-color: #141413;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.projectResultCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: rgba(231, 184, 168, 0.4);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.72rem;
+  font-family: monospace;
+}
+
+.cardId {
+  font-weight: 700;
+  color: #88847C;
+}
+
+.cardUrl {
+  color: #B8B5AE;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #F5F3EE;
+  margin: 0 0 0.35rem 0;
+}
+
+.cardDesc {
+  font-size: 0.78rem;
+  color: #B8B5AE;
+  line-height: 1.45;
+  margin: 0 0 0.75rem 0;
+}
+
+.stackTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.stackTag {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: var(--radius-pill);
+  background-color: #1A1A19;
+  color: #B8B5AE;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+@media (max-width: 768px) {
+  .dbPlaygroundCard {
+    padding: 1.5rem;
+  }
+
+  .queryRunnerRow {
+    flex-direction: column;
+  }
+}

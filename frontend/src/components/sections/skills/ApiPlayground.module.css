@@ -1,0 +1,252 @@
+/* ==========================================================================
+   ApiPlayground Component Styles
+   Interactive API request-flow architecture visualization
+   ========================================================================== */
+
+.apiPlaygroundCard {
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(36, 35, 33, 0.04);
+  margin-bottom: 3.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.headerTitleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tagline {
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.reqControlRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.endpointPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border);
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.methodBadge {
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: #2e4a33;
+  background-color: var(--accent-sage);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.sendBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: 1px solid var(--btn-primary-bg);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(36, 35, 33, 0.08);
+}
+
+.sendBtn:hover:not(:disabled) {
+  background-color: #141312;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(36, 35, 33, 0.18);
+}
+
+.sendBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Architecture Flow Nodes Visualizer */
+.flowContainer {
+  background-color: var(--surface-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.flowTrack {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.flowNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  min-width: 90px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nodeIconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--surface-primary);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(36, 35, 33, 0.04);
+}
+
+.nodeLabel {
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.nodeActive .nodeIconWrapper {
+  border-color: var(--accent-green);
+  background-color: #F1F7F2;
+  color: #2e4a33;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(146, 197, 155, 0.25);
+}
+
+.nodeActive .nodeLabel {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.nodeCompleted .nodeIconWrapper {
+  border-color: var(--accent-sage);
+  background-color: var(--accent-sage);
+  color: #2e4a33;
+}
+
+.flowConnector {
+  flex-grow: 1;
+  height: 2px;
+  background-color: var(--border);
+  position: relative;
+  min-width: 24px;
+  overflow: hidden;
+}
+
+.connectorProgress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent-green);
+  transition: width 0.35s ease;
+}
+
+/* Result Simulation Box */
+.responseBox {
+  background-color: #FAF8F4;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.responseHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.statusTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  background-color: var(--accent-sage);
+  color: #2e4a33;
+}
+
+.latencyTag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.jsonOutput {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.82rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+@media (max-width: 860px) {
+  .apiPlaygroundCard {
+    padding: 1.75rem;
+  }
+
+  .flowTrack {
+    justify-content: center;
+  }
+
+  .flowConnector {
+    display: none;
+  }
+}
