@@ -6,6 +6,8 @@
 .worldMapWrap {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 /* ─── Mode Row ────────────────────────────────────────────────────────────── */
@@ -564,16 +566,30 @@
 
   .modeTabs {
     gap: 2px;
+    max-width: 100%;
+    overflow-x: auto;
+    contain: paint;
+    scrollbar-width: none;
+  }
+
+  .modeTabs::-webkit-scrollbar {
+    display: none;
   }
 
   .modeBtn {
-    padding: 4px 10px;
-    font-size: 0.62rem;
+    padding: 6px 12px;
+    font-size: 0.66rem;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .traceBtn {
-    font-size: 0.62rem;
-    padding: 4px 12px;
+    font-size: 0.66rem;
+    padding: 6px 14px;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .regionLabel {

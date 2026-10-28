@@ -7,11 +7,14 @@
   padding: 6.5rem 24px;
   background-color: #0B0C0C;
   position: relative;
-  overflow: visible;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
 }
 
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -142,6 +145,9 @@
 .stageThreeWrapper {
   position: relative;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
 }
 
 .stageTwoWrapper {
@@ -200,7 +206,11 @@
 
 @media (max-width: 768px) {
   .skills {
-    padding: 4.5rem 16px;
+    padding: 3.5rem 16px;
+  }
+
+  .title {
+    font-size: clamp(1.85rem, 7.5vw, 2.5rem);
   }
 
   .sectionHeader {

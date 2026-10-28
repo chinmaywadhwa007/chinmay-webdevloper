@@ -19,10 +19,14 @@
   background-color: #0B0D0D;
   color: #F2F0E9;
   position: relative;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
 }
 
 .container {
   max-width: 1080px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -907,12 +911,17 @@
 
   .careerCounterRow {
     flex-wrap: wrap;
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    max-width: 100%;
   }
 
   .timelineLayout {
-    grid-template-columns: 28px 1fr;
-    gap: 0.85rem;
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .timelineLeft {
@@ -923,23 +932,23 @@
   }
 
   .svgTrackWrapper {
-    width: 28px;
+    width: 24px;
     height: 460px;
   }
 
   .timelineNode {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .markerBaseCircle {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
   }
 
   .markerOuterRing {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
   }
 
   .progressCounter {
@@ -955,7 +964,10 @@
   }
 
   .timelineRight {
-    gap: 2rem;
+    gap: 1.75rem;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
   }
 
   .inspectorModal {

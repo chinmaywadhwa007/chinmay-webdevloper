@@ -11,6 +11,9 @@
   position: relative;
   z-index: 10;
   overflow: hidden;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100%;
   font-family: var(--font-sans, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
   color: #B7B2A8;
 }
@@ -21,7 +24,8 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 900px;
+  width: min(900px, 100%);
+  max-width: 100%;
   height: 240px;
   background: radial-gradient(
     ellipse at top center,
@@ -635,6 +639,13 @@
     padding: 3.5rem 0 2rem;
   }
 
+  .glowTop {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    transform: none;
+  }
+
   .ctaBanner {
     padding: 2.2rem 1.75rem;
     margin-bottom: 3.5rem;
@@ -648,6 +659,14 @@
   .ctaActions {
     flex-direction: column;
     width: 100%;
+    gap: 12px;
+  }
+
+  .primaryCtaBtn,
+  .secondaryCtaBtn {
+    width: 100%;
+    min-height: 48px;
+    justify-content: center;
   }
 
   .mainGrid {
@@ -664,5 +683,19 @@
 
   .bottomCenter {
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .ctaBanner {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ctaTitle {
+    font-size: 1.45rem;
+  }
+
+  .container {
+    padding: 0 16px;
   }
 }

@@ -90,6 +90,18 @@ const Navbar = () => {
   const activeId = getActiveId();
   const activePastel = PASTEL[activeId] || PASTEL.home;
 
+  // Lock body scroll on mobile when drawer is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
     <>
       <header
@@ -172,7 +184,7 @@ const Navbar = () => {
                   transition={{ duration: 0.15 }}
                   style={{ display: 'flex', alignItems: 'center' }}
                 >
-                  {isOpen ? <FiX size={18} /> : <FiMenu size={18} />}
+                  {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
                 </motion.span>
               </AnimatePresence>
             </button>
@@ -180,42 +192,70 @@ const Navbar = () => {
         </nav>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer & Backdrop */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            className={styles.mobileDrawer}
-            initial={{ opacity: 0, y: -12, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0,   scale: 1 }}
-            exit={{   opacity: 0, y: -12,  scale: 0.97 }}
-            transition={{ type: 'spring', stiffness: 360, damping: 30 }}
-          >
-            <div className={styles.mobileList}>
-              {NAV_ITEMS.map(item => {
-                const isActive = item.id === activeId;
-                const pastel   = PASTEL[item.id] || PASTEL.home;
+          <>
+            <motion.div
+              className={styles.mobileBackdrop}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              className={styles.mobileDrawer}
+              initial={{ opacity: 0, y: -16, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -14, scale: 0.96 }}
+              transition={{ type: 'spring', stiffness: 380, damping: 28 }}
+            >
+              <div className={styles.mobileDrawerHeader}>
+                <div className={styles.mobileStatusIndicator}>
+                  <span className={styles.mobileStatusPulse} />
+                  <span className={styles.mobileStatusText}>Available for Opportunities</span>
+                </div>
+              </div>
 
-                return (
-                  <NavLink
-                    key={item.id}
-                    to={item.path}
-                    onClick={() => setIsOpen(false)}
-                    className={styles.mobileItem}
-                    style={isActive ? {
-                      backgroundColor: pastel.bg,
-                      borderColor:     pastel.border,
-                    } : {}}
-                  >
-                    <span>{item.label}</span>
-                    {isActive
-                      ? <span className={styles.mobileDot} style={{ background: activePastel.border }} />
-                      : <FiArrowUpRight size={14} className={styles.mobileArrow} />
-                    }
-                  </NavLink>
-                );
-              })}
-            </div>
-          </motion.div>
+              <div className={styles.mobileList}>
+                {NAV_ITEMS.map((item, index) => {
+                  const isActive = item.id === activeId;
+
+                  return (
+                    <NavLink
+                      key={item.id}
+                      to={item.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`${styles.mobileItem} ${isActive ? styles.mobileItemActive : ''}`}
+                    >
+                      <div className={styles.mobileItemLeft}>
+                        <span className={styles.mobileItemNumber}>0{index + 1}</span>
+                        <span className={styles.mobileItemLabel}>{item.label}</span>
+                      </div>
+                      {isActive ? (
+                        <span className={styles.mobileActiveBadge}>Current</span>
+                      ) : (
+                        <FiArrowUpRight size={16} className={styles.mobileArrow} />
+                      )}
+                    </NavLink>
+                  );
+                })}
+              </div>
+
+              <div className={styles.mobileDrawerFooter}>
+                <Link
+                  to="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className={styles.mobileContactBtn}
+                >
+                  <span>Initiate Contact</span>
+                  <FiArrowUpRight size={16} />
+                </Link>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

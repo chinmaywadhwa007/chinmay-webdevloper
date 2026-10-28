@@ -7,10 +7,16 @@
 .section {
   padding: 5rem 24px;
   position: relative;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: clip;
 }
 
 .container {
   max-width: 1160px;
+  width: 100%;
+  box-sizing: border-box;
   margin: 0 auto;
 }
 
@@ -796,13 +802,23 @@
 
 @media (max-width: 760px) {
   .section {
-    padding: 3.5rem 16px;
+    padding: 3rem 16px;
+  }
+
+  .title {
+    font-size: clamp(1.75rem, 6.8vw, 2.3rem);
   }
 
   .header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+  }
+
+  .openBtn {
+    min-height: 42px;
+    width: 100%;
+    justify-content: center;
   }
 
   .frame {
@@ -813,14 +829,23 @@
   .selector {
     border-right: none;
     border-bottom: 1px solid var(--border-subtle);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+    contain: paint;
   }
 
   /* Selector becomes a horizontal rail — scrolls inside, never the page */
   .selectorList {
     flex-direction: row;
     overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     gap: 6px;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
 

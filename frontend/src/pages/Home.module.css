@@ -6,6 +6,9 @@
 .homePage {
   min-height: 100vh;
   background-color: var(--bg-primary);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .sectionConnector {
@@ -361,12 +364,21 @@
 
 @media (max-width: 768px) {
   .featuredSection {
-    padding: 3.5rem 16px 2.5rem 16px;
+    padding: 3rem 16px 2rem 16px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.85rem, 7.5vw, 2.5rem);
+  }
+
+  .sectionSubtitle {
+    font-size: 0.96rem;
+    line-height: 1.55;
   }
 
   .featuredGrid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
   .cardImgWrap {
@@ -374,6 +386,24 @@
   }
 
   .cardBody {
-    padding: 1.25rem;
+    padding: 1.15rem;
+  }
+
+  .viewAllBtn {
+    width: 100%;
+    max-width: 290px;
+    justify-content: center;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .featuredSection {
+    padding: 2.5rem 14px 1.75rem 14px;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.65rem, 7.2vw, 2rem);
   }
 }

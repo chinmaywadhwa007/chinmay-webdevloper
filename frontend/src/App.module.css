@@ -2,11 +2,22 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .main {
   flex: 1;
   margin-top: 64px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Smooth scroll behavior */

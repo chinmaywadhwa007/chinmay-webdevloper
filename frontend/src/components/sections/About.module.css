@@ -8,11 +8,14 @@
   padding: 6.5rem 24px;
   background-color: #0A0A09;
   position: relative;
-  overflow: visible;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .container {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -610,28 +613,65 @@
 
 @media (max-width: 640px) {
   .about {
-    padding: 4rem 16px;
+    padding: 3.5rem 16px;
   }
 
   .sectionHeader {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: clamp(1.85rem, 7vw, 2.5rem);
+  }
+
+  .sectionSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.55;
   }
 
   .editorialGrid {
-    gap: 2rem;
+    gap: 1.75rem;
   }
 
   .bioColumn {
     gap: 1.25rem;
   }
 
+  .bioHeading {
+    font-size: 1.45rem;
+  }
+
+  .principleDesc {
+    padding-left: 0;
+    margin-top: 6px;
+  }
+
+  .principleText {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
   .workflowRow {
-    gap: 10px;
-    padding: 1.25rem 0;
+    gap: 8px;
+    padding: 1.15rem 0;
   }
 
   .workflowStep {
-    font-size: 0.64rem;
+    font-size: 0.65rem;
+  }
+
+  .statsBlock {
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .statNumber {
+    font-size: clamp(2.2rem, 8vw, 3rem);
+  }
+
+  .resumeBtn {
+    min-height: 44px;
+    padding: 10px 20px;
   }
 }
 

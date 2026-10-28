@@ -574,3 +574,36 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 640px) {
+  .faviconGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .stageDisplayArea {
+    padding: 2.25rem 1rem 1.75rem;
+    min-height: 200px;
+  }
+
+  .ambientHaloBackdrop {
+    width: 240px;
+    height: 140px;
+  }
+
+  .mockupNavbarPill {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 16px;
+    padding: 0.5rem;
+  }
+
+  .mockupNavLinks {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .themeToggleGroup {
+    flex-wrap: wrap;
+  }
+}

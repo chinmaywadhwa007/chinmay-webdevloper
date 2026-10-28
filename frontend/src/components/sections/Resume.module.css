@@ -968,16 +968,18 @@
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
+  display: none;
+  transition: opacity 0.2s ease;
   z-index: 10;
   border: 1px solid rgba(217, 90, 58, 0.25);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.techChip:hover .techChipTooltip {
-  opacity: 1;
-  visibility: visible;
+@media (hover: hover) and (pointer: fine) {
+  .techChip:hover .techChipTooltip {
+    display: block;
+    opacity: 1;
+  }
 }
 
 /* ─── PROJECTS SECTION (Requirements 9, 10, 11) ───────────── */
@@ -1451,33 +1453,86 @@
 
 @media (max-width: 640px) {
   .dossier {
-    padding: 4.5rem 16px 6rem;
+    padding: 3.5rem 14px 5rem;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .title {
+    font-size: clamp(1.85rem, 7vw, 2.5rem);
+  }
+
+  .subtitle {
+    font-size: 0.94rem;
+    line-height: 1.55;
   }
 
   .heroCard {
-    padding: 1.5rem 1.25rem;
+    padding: 1.5rem 1rem;
+    border-radius: var(--radius-md);
   }
 
   .dossierName {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   .metadataRow {
-    gap: 1.25rem;
+    gap: 1rem;
+  }
+
+  .contactRail {
+    gap: 0.5rem;
+  }
+
+  .railItem {
+    font-size: 0.72rem;
+    padding: 8px 12px;
+    min-height: 40px;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  .railItemDownload {
+    width: 100%;
+    justify-content: center;
+    min-height: 44px;
+    font-size: 0.8rem;
   }
 
   .statsGrid {
     grid-template-columns: 1fr;
   }
 
+  .projectsShelf {
+    grid-template-columns: 1fr;
+  }
+
   .modeSwitcherRow {
     flex-direction: column;
     align-items: stretch;
+    gap: 0.75rem;
   }
 
   .modeTabsGroup {
     overflow-x: auto;
+    contain: paint;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 3px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .modeTabsGroup::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modeTab {
+    padding: 6px 12px;
+    font-size: 0.68rem;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }
 

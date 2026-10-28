@@ -385,6 +385,13 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -393,8 +400,13 @@ body {
   color: var(--text-primary);
   line-height: 1.6;
   min-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
   overflow-x: hidden;
+  position: relative;
   transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Subtle technical editorial fine dot grid background */
@@ -413,6 +425,10 @@ body::before {
 #root {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  overflow-x: hidden;
 }
 
 /* Typography Hierarchy */
@@ -476,6 +492,7 @@ button {
   background: none;
   font-family: inherit;
   color: inherit;
+  touch-action: manipulation;
 }
 
 /* Inputs & Form Elements */
@@ -490,6 +507,14 @@ select {
   border-radius: var(--radius-sm);
   transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px; /* Prevents auto-zoom on iOS Safari */
+  }
 }
 
 input:focus,
@@ -508,9 +533,16 @@ textarea::placeholder {
 
 /* Container Utility */
 .container {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
 }
 
 .text-center {

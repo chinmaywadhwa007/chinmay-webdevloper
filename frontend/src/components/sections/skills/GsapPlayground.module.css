@@ -369,11 +369,24 @@
 
 @media (max-width: 640px) {
   .stage {
-    padding: 1.25rem;
+    padding: 1.25rem 1rem;
     min-height: 200px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .scrubControls {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .svgPathCanvas {
+    max-width: 100%;
+    height: auto;
   }
 
   .scrollDemoWrapper {
     gap: 1.25rem;
+    width: 100%;
   }
 }
