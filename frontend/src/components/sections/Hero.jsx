@@ -221,7 +221,7 @@ const Hero = () => {
         .to(headlineRef.current, { y: -80, scale: 0.92, opacity: 0.7, ease: 'none' }, 0)
         .to(subtitleRef.current, { y: -110, opacity: 0.5, ease: 'none' }, 0)
         .to(bioRef.current, { y: -90, opacity: 0.4, ease: 'none' }, 0)
-        .to(constellationRef.current, { y: -50, opacity: 0.15, scale: 1.05, ease: 'none' }, 0)
+        .to(constellationRef.current, { y: -50, opacity: 0.15, scale: 1, ease: 'none' }, 0)
         .to(ctasRef.current, { y: -60, opacity: 0, ease: 'none' }, 0)
         .to(scrollIndRef.current, { opacity: 0, ease: 'none' }, 0)
         .to(ambientRef.current, { y: 60, opacity: 0.3, ease: 'none' }, 0);

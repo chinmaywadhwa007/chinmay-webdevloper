@@ -8,7 +8,7 @@
   background-color: var(--bg-primary);
   width: 100%;
   max-width: 100%;
-  overflow-x: clip;
+  overflow: hidden;
 }
 
 .sectionConnector {
@@ -389,12 +389,20 @@
     padding: 1.15rem;
   }
 
+  .viewAllWrap > div {
+    width: 100% !important;
+    max-width: 320px !important;
+    display: inline-block !important;
+  }
+
   .viewAllBtn {
     width: 100%;
-    max-width: 290px;
+    max-width: 100%;
     justify-content: center;
     min-height: 48px;
     box-sizing: border-box;
+    text-align: center;
+    white-space: normal;
   }
 }
 

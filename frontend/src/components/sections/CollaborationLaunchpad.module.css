@@ -514,7 +514,8 @@
   width: 100%;
   max-width: 100%;
   overflow: hidden;
-  contain: paint;
+  contain: paint layout;
+  touch-action: pan-y;
   padding: 6px 0;
   mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
@@ -599,9 +600,30 @@
 @media (max-width: 640px) {
   .launchpadContainer {
     width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
     margin: 1.5rem auto 3.5rem auto;
     padding: 2.75rem 16px 2.25rem 16px;
     border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .ambientFieldLavender {
+    top: 0;
+    right: 0;
+    width: 180px;
+    height: 180px;
+  }
+
+  .ambientFieldSage {
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
+  }
+
+  .ambientFieldPeach {
+    width: 160px;
+    height: 160px;
   }
 
   .heroTitle {
@@ -613,6 +635,8 @@
     font-size: 0.95rem;
     margin-bottom: 1.75rem;
     padding: 0 4px;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .ctaButtonGroup {

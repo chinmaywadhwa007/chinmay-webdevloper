@@ -262,8 +262,8 @@ const About = () => {
       // 5. Principles column
       if (principlesColRef.current) {
         tl.fromTo(principlesColRef.current.querySelectorAll(`.${styles.principleItem}`),
-          { opacity: 0, x: 36, clipPath: 'inset(0 0 0 20px round 4px)' },
-          { opacity: 1, x: 0, clipPath: 'inset(0 0 0 0px round 0px)',
+          { opacity: 0, y: 24, clipPath: 'inset(16px 0 0 0 round 4px)' },
+          { opacity: 1, y: 0, clipPath: 'inset(0px 0 0 0 round 0px)',
             duration: 0.6, stagger: 0.12, ease: 'power3.out' },
           '-=0.5');
       }

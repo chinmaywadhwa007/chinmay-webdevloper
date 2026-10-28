@@ -33,3 +33,9 @@
 .hoverLabel:hover .arrowIcon {
   transform: translateX(2px);
 }
+
+@media (pointer: coarse), (max-width: 768px) {
+  .hoverLabel {
+    display: none !important;
+  }
+}

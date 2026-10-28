@@ -19,7 +19,7 @@
   background-color: #0B0D0D;
   color: #F2F0E9;
   position: relative;
-  overflow-x: clip;
+  overflow: hidden;
   width: 100%;
   max-width: 100%;
 }
@@ -28,6 +28,7 @@
   max-width: 1080px;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 /* ─── Section Header ──────────────────────────────── */
@@ -198,6 +199,8 @@
   border: 1px solid rgba(156, 201, 212, 0.16);
   border-radius: var(--radius-pill);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  max-width: 100%;
+  flex-wrap: wrap;
 }
 
 .counterItem {
@@ -960,6 +963,10 @@
   }
 
   .markerHoverPill {
+    display: none;
+  }
+
+  .journeyExtender {
     display: none;
   }
 

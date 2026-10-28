@@ -20,6 +20,8 @@
 .bgGeometry {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  max-width: 100%;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
@@ -37,6 +39,7 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
+  max-width: 100%;
   pointer-events: none;
   z-index: 0;
   will-change: transform;
@@ -82,6 +85,8 @@
 .constellationContainer {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  max-width: 100%;
   pointer-events: none;
   z-index: 1;
 }
@@ -237,6 +242,7 @@
   min-height: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 100%;
 }
 
 .rolePrefix {
@@ -249,6 +255,8 @@
   font-weight: 700;
   border-bottom: 2px solid #AEBFA7;
   padding-bottom: 1px;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .typingCursor {
@@ -268,11 +276,14 @@
 /* Editorial Bio Description */
 .description {
   max-width: 660px;
+  width: 100%;
   font-size: clamp(0.98rem, 1.8vw, 1.12rem);
   line-height: 1.68;
   color: #B8B5AE;
   margin-bottom: 2.25rem;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .highlightText {
@@ -397,9 +408,9 @@
     padding: 84px 16px 36px;
     min-height: 88vh;
     width: 100%;
-    max-width: 100vw;
+    max-width: 100%;
     box-sizing: border-box;
-    overflow-x: clip;
+    overflow: hidden;
   }
 
   .headline {
@@ -408,12 +419,28 @@
     letter-spacing: -0.03em;
   }
 
-  .shapeLavender,
-  .shapeSage,
-  .shapePeach {
-    width: 240px;
-    height: 240px;
+  .shapeLavender {
+    top: 5%;
+    right: 5%;
+    width: 180px;
+    height: 180px;
     opacity: 0.35;
+  }
+
+  .shapeSage {
+    bottom: 5%;
+    left: 5%;
+    width: 180px;
+    height: 180px;
+    opacity: 0.35;
+  }
+
+  .shapePeach {
+    top: 35%;
+    left: 20%;
+    width: 180px;
+    height: 180px;
+    opacity: 0.3;
   }
 
   .availabilityBadge {
@@ -422,6 +449,12 @@
     max-width: 100%;
     box-sizing: border-box;
     line-height: 1.35;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .availabilityText {
+    white-space: normal;
   }
 
   .badgeSep,
@@ -465,7 +498,7 @@
   }
 
   .description {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
     line-height: 1.6;
     margin-bottom: 1.75rem;
   }
